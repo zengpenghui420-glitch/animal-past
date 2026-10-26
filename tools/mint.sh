@@ -44,11 +44,24 @@ while [[ ${#minted[@]} -lt $COUNT ]]; do
     echo "skip $code (http ${status:-000})" >&2
     continue
   fi
-  resp=$(curl -sS -X POST "https://mantledb.sh/v2/$NS/$COL/$code" \
+  body_file=$(mktemp)
+  http=$(curl -sS -o "$body_file" -w '%{http_code}' -X POST "https://mantledb.sh/v2/$NS/$COL/$code" \
     -H "Content-Type: application/json" \
     -H "X-Mantle-Key: $KEY" \
     -H "User-Agent: animal-past-mint/1.0" \
-    -d "{\"remaining\":$MAX_USES,\"max\":$MAX_USES,\"created\":\"$(date -Iseconds)\"}")
+    -d "{\"remaining\":$MAX_USES,\"max\":$MAX_USES,\"created\":\"$(date -Iseconds)\"}" || true)
+  resp=$(cat "$body_file")
+  rm -f "$body_file"
+  # A successful create returns {"success":true,"path":"..."} (not the document).
+  # Limit / auth failures return an "error" field. Do not count those as minted.
+  if [[ ! "$http" =~ ^2 ]] || [[ "$resp" == *'"error"'* ]]; then
+    echo "failed $code  http ${http:-000}  $resp" >&2
+    if [[ "$resp" == *"Entry limit"* || "$resp" == *"limit"* ]]; then
+      echo "Namespace $NS is at its entry cap. Free a slot or upgrade Mantle, then mint again." >&2
+      exit 1
+    fi
+    continue
+  fi
   echo "$code  $resp"
   minted+=("$code")
 done

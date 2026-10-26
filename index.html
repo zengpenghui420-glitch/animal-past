@@ -4,106 +4,108 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#FFF8F2">
-<meta name="description" content="动物塑 · 前世动物人格小测验（仅供娱乐）">
+<meta name="description" content="动物塑 · 前世动物人格小测验。趣味娱乐，仅供玩乐。">
 <meta property="og:title" content="上辈子是什么动物">
-<meta property="og:description" content="14 道情境小题，看看你的气质更接近哪一种前世动物。仅供娱乐。">
+<meta property="og:description" content="十二种前世动物里，你更接近哪一只。趣味娱乐，仅供玩乐。">
 <meta property="og:url" content="https://zengpenghui420-glitch.github.io/animal-past/">
 <title>上辈子是什么动物</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFF8F2'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%238FBF9F'/%3E%3C/svg%3E">
 <style>
-:root{--bg:#FFF8F2;--card:#fff;--main:#7EAE8E;--deep:#4F7A62;--ink:#3E5346;--dark:#4A3F35;--soft:#E7F3EA;--lighter:#F4F8F4;--blush:#F8E8E4;--blush-deep:#C48478;--border:#E8D9C8;--muted:#7A6E64;--light:#B7A99C;--bar:#8FBF9F;--sb:env(safe-area-inset-bottom,0px)}
+:root{--bg:#FFF8F2;--card:#fffdf9;--main:#7EAE8E;--deep:#4F7A62;--ink:#3E5346;--dark:#4A3F35;--soft:#E7F3EA;--lighter:#F7F3EA;--blush:#F8E8E4;--blush-deep:#C48478;--border:#E6D5C3;--muted:#7A6E64;--light:#B7A99C;--paper:#F4EBDD;--sb:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{min-height:100%;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
-body{max-width:430px;margin:0 auto}
+html,body{min-height:100%;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
+body{max-width:430px;margin:0 auto;background:
+  radial-gradient(circle at 8% 0%, rgba(232,165,152,.2), transparent 32%),
+  radial-gradient(circle at 100% 12%, rgba(143,191,159,.22), transparent 28%),
+  linear-gradient(180deg,#FFF9F4,#F6EFE4)}
 button,input{font-family:inherit}
 .screen{display:none;min-height:100dvh;flex-direction:column}.screen.active{display:flex}
-#start{padding:28px 24px 32px;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#FFF8F2 0%,#F4EFE4 100%)}
-.hero{position:relative;width:230px;height:196px;margin-bottom:4px}
-.orb{width:148px;height:148px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#fff 0%,#E7F3EA 58%,#F8E8E4 100%);display:flex;align-items:center;justify-content:center;font-size:72px;margin:28px auto 0;box-shadow:0 10px 28px rgba(143,191,159,.28);border:1px solid var(--border)}
-.sat{position:absolute;width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 12px rgba(143,191,159,.18)}
-.s1{left:4px;top:34px}.s2{right:2px;top:22px}.s3{right:18px;bottom:6px}
-.start-label{font-size:13px;color:var(--deep);letter-spacing:2px;margin-bottom:8px}
-h1{font-size:32px;line-height:1.3;color:var(--dark);margin-bottom:10px;font-weight:700}
-h1 .hl{background:linear-gradient(transparent 62%,#D7EBD9 62%);padding:0 2px}
-.desc{font-size:14px;color:var(--muted);margin-bottom:18px}
-.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:26px}
-.pill{padding:5px 12px;border-radius:20px;background:var(--soft);color:var(--deep);font-size:12px}
-.btn-primary{width:100%;max-width:300px;padding:16px;border:none;border-radius:28px;background:linear-gradient(135deg,#A9D4B8,#7FB496);color:var(--ink);font-size:17px;font-weight:700;box-shadow:0 6px 20px rgba(127,180,150,.35);cursor:pointer}
+#start{padding:32px 24px 28px;align-items:center;justify-content:center;text-align:center}
+.hero{position:relative;width:230px;height:196px;margin-bottom:2px}
+.orb{width:148px;height:148px;border-radius:42px;background:radial-gradient(circle at 38% 32%,#fff 0%,#E7F3EA 58%,#F8E8E4 100%);display:flex;align-items:center;justify-content:center;font-size:72px;margin:28px auto 0;border:6px solid #fff;box-shadow:0 8px 0 rgba(230,213,195,.9),0 16px 28px rgba(143,120,96,.12);transform:rotate(-6deg)}
+.sat{position:absolute;width:46px;height:46px;border-radius:16px;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 0 rgba(230,213,195,.8)}
+.s1{left:2px;top:36px;transform:rotate(-8deg)}.s2{right:0;top:18px;transform:rotate(7deg)}.s3{right:22px;bottom:2px;transform:rotate(-4deg)}
+.start-label{font-size:13px;color:var(--deep);letter-spacing:3px;margin:8px 0}
+h1{font-size:32px;line-height:1.3;color:var(--dark);margin-bottom:8px;font-weight:700}
+h1 .hl{background:linear-gradient(transparent 62%,#E4C8B8 62%);padding:0 2px}
+.desc{font-size:14px;color:var(--muted);margin-bottom:16px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.pill{padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.8);border:1px solid var(--border);color:var(--deep);font-size:12px}
+.btn-primary{width:100%;max-width:300px;padding:16px;border:none;border-radius:28px;background:linear-gradient(135deg,#A9D4B8,#7FB496);color:var(--ink);font-size:17px;font-weight:700;box-shadow:0 6px 18px rgba(127,180,150,.28);cursor:pointer}
 .btn-primary:active{transform:scale(.97)}
 .btn-primary:disabled{opacity:.7}
-.btn-ghost{width:100%;max-width:300px;margin-top:10px;padding:14px;border-radius:28px;border:1.5px solid var(--main);background:#fff;color:var(--deep);font-size:15px;font-weight:600;cursor:pointer}
+.btn-ghost{width:100%;max-width:300px;margin-top:10px;padding:14px;border-radius:28px;border:1.5px solid var(--main);background:rgba(255,253,249,.9);color:var(--deep);font-size:15px;font-weight:600;cursor:pointer}
 .btn-ghost:active{transform:scale(.97)}
 .btn-ghost[hidden]{display:none}
 .hint{margin-top:14px;font-size:12px;color:var(--light)}
-.legal{font-size:11px;color:var(--light);line-height:1.5;text-align:center}
-.start-legal{margin-top:14px;max-width:300px}
-.qh{padding:16px 20px 12px;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5}
+.legal{font-size:12px;color:var(--muted);letter-spacing:1px}
+.legal-dim{margin-top:4px;font-size:10px;color:var(--light);line-height:1.5;max-width:300px}
+.start-legal{margin-top:16px}
+.qh{padding:16px 20px 12px;background:rgba(255,249,244,.94);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5}
 .qrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .qback{background:none;border:none;color:var(--muted);font-size:14px;cursor:pointer}
 .qprog{font-size:13px;color:var(--deep);font-weight:600}
-.track{height:6px;background:var(--soft);border-radius:3px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#A9D4B8,#7EAE8E);transition:width .3s}
-.qbody{padding:24px 20px 32px}
-.qemoji{font-size:40px;margin-bottom:6px}
+.track{height:6px;background:#F3E6D8;border-radius:3px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#E7C4B4,#8FBF9F);transition:width .3s}
+.qbody{padding:22px 20px 32px}
+.qemoji{font-size:36px;margin-bottom:6px}
 .qno{font-size:12px;color:var(--deep);font-weight:600;letter-spacing:1px;margin-bottom:8px}
-.qtext{font-size:20px;font-weight:700;line-height:1.45;margin-bottom:24px}
+.qtext{font-size:20px;font-weight:700;line-height:1.45;margin-bottom:22px}
 .opts{display:flex;flex-direction:column;gap:12px}
-.opt{padding:16px 18px;background:#fff;border:1.5px solid var(--border);border-radius:16px;font-size:15px;color:var(--dark);text-align:left;cursor:pointer;line-height:1.5}
-.opt.sel,.opt:active{border-color:var(--main);background:var(--lighter);color:var(--deep)}
+.opt{padding:16px 18px;background:rgba(255,253,249,.94);border:1.5px solid var(--border);border-radius:18px;font-size:15px;color:var(--dark);text-align:left;cursor:pointer;line-height:1.5;box-shadow:0 3px 0 rgba(230,213,195,.65)}
+.opt.sel,.opt:active{border-color:var(--main);background:#F4F8F4;color:var(--deep)}
 #loading{align-items:center;justify-content:center;text-align:center;padding:24px}
-.loader{width:40px;height:40px;border:3px solid var(--soft);border-top-color:var(--main);border-radius:50%;animation:sp .8s linear infinite;margin:0 auto 18px}@keyframes sp{to{transform:rotate(360deg)}}
+.loader{width:40px;height:40px;border:3px solid #F3E6D8;border-top-color:var(--blush-deep);border-radius:50%;animation:sp .8s linear infinite;margin:0 auto 18px}@keyframes sp{to{transform:rotate(360deg)}}
 #result{padding-bottom:calc(108px + var(--sb))}
-.rtop{padding:14px 16px;background:#fff;display:flex;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5;font-size:14px;font-weight:600}
+.rtop{padding:14px 16px;background:rgba(255,249,244,.94);display:flex;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5;font-size:14px;font-weight:600}
 .rtop span:last-child{font-weight:400;color:var(--light);font-size:12px}
 .wrap{overflow:hidden;width:100%;touch-action:pan-y}
 .slides{display:flex;width:100%;transition:transform .35s cubic-bezier(.25,.8,.25,1)}
 .slide{flex:0 0 100%;width:100%;padding:18px 16px 8px}
-.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px 18px;margin-bottom:14px;box-shadow:0 2px 12px rgba(143,191,159,.1)}
-.st{font-size:15px;font-weight:700;margin-bottom:12px}.st b{color:var(--deep)}
-.portrait{width:148px;height:148px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:72px;border:1px solid var(--border)}
-.pct{font-size:52px;font-weight:700;color:var(--deep);text-align:center;line-height:1.1}
-.pct-cap{text-align:center;font-size:12px;color:var(--muted);letter-spacing:2px;margin-bottom:4px}
-.bname{font-size:28px;font-weight:700;text-align:center;margin:4px 0 2px}
-.tagline{font-size:13px;color:var(--muted);text-align:center;margin-bottom:14px}
+.card{position:relative;background:linear-gradient(180deg,rgba(255,253,249,.97),rgba(255,248,242,.95));border:1px solid var(--border);border-radius:22px;padding:22px 18px 18px;margin-bottom:14px;box-shadow:0 10px 26px rgba(166,124,96,.08)}
+.card:before,.card:after{content:"";position:absolute;width:12px;height:12px;border-color:#C9B29A;border-style:solid;pointer-events:none}
+.card:before{top:8px;left:8px;border-width:1.5px 0 0 1.5px}
+.card:after{right:8px;bottom:8px;border-width:0 1.5px 1.5px 0}
+.seal{position:absolute;top:16px;right:16px;min-width:52px;padding:4px 6px;border:1.5px solid currentColor;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:2px;transform:rotate(8deg);background:rgba(255,253,249,.7)}
+.seal.r-大众{color:#4F7A62}.seal.r-少见{color:#C48478}.seal.r-天花板{color:#A15A4E}
+.sticker{width:148px;height:148px;margin:8px auto 12px;border-radius:38px;display:flex;align-items:center;justify-content:center;font-size:74px;border:6px solid #fff;box-shadow:0 7px 0 rgba(230,213,195,.95),0 14px 22px rgba(143,120,96,.12);transform:rotate(-6deg)}
+.bname{font-size:36px;font-weight:700;text-align:center;letter-spacing:2px}
+.title4{text-align:center;font-size:15px;letter-spacing:6px;color:var(--blush-deep);margin:6px 0 14px;font-weight:600}
 .tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.tag{padding:5px 14px;border-radius:20px;background:var(--blush);color:var(--blush-deep);font-size:13px;font-weight:500}
-.whisper{margin-top:14px;font-size:14px;color:var(--dark);text-align:center;line-height:1.7}
-.p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:10px}
-.p:last-child{margin-bottom:0}
-.li{background:#FFFAF6;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:10px;font-size:13px;color:var(--muted);line-height:1.7}
-.li b{display:block;color:var(--dark);font-size:14px;margin-bottom:4px}
-.li:last-child{margin-bottom:0}
-.warn{background:#FBF6F3;border-color:#F0DDD6}
-.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.bl{width:64px;font-size:12px;font-weight:600;color:var(--dark)}
-.bt{flex:1;height:10px;background:var(--soft);border-radius:5px;overflow:hidden}
-.bf{height:100%;background:linear-gradient(90deg,#C9E6D4,var(--bar));border-radius:5px;width:0;transition:width .8s}
-.bs{width:36px;text-align:right;font-size:12px;color:var(--deep);font-weight:600}
-.speech{background:var(--lighter);border-radius:16px 16px 16px 4px;padding:12px 14px;margin-bottom:10px;font-size:14px;font-weight:500;color:var(--dark)}
+.tag{padding:5px 14px;border-radius:20px;background:var(--blush);color:var(--blush-deep);font-size:13px;font-weight:600}
+.pct-soft{margin-top:14px;text-align:center;font-size:12px;color:var(--light);letter-spacing:1px}
+.blurb{font-size:16px;line-height:1.85;color:var(--dark)}
+.big-letter{font-size:22px;font-weight:700;line-height:1.7;text-align:center;color:var(--dark);padding:8px 6px 4px}
+.st{font-size:15px;font-weight:700;margin-bottom:12px;letter-spacing:1px}.st b{color:var(--deep)}
+.p{font-size:14px;color:var(--muted);line-height:1.75}
+.blind{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.7}
+.row2{display:flex;gap:10px}
+.row2 .half{flex:1;text-align:center}
+.mates,.clash{display:flex;justify-content:center;gap:16px;margin-top:4px}
+.mini{width:64px;height:64px;border-radius:20px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:32px;border:3px solid #fff;box-shadow:0 4px 0 rgba(230,213,195,.9)}
+.nm{font-size:13px;color:var(--dark);font-weight:600}
+.sublabel{font-size:12px;color:var(--light);letter-spacing:2px;margin-bottom:8px}
 .swh{text-align:center;font-size:12px;color:var(--light)}
 .dots{display:flex;justify-content:center;gap:7px;padding:4px 0 8px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:all .25s}
-.dot.on{background:var(--main);width:18px;border-radius:4px}
-.rel{display:flex;justify-content:space-around;gap:8px}
-.rel .one{width:30%;text-align:center}
-.rel .mini{width:64px;height:64px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:32px;border:1px solid var(--border)}
-.rel .nm{font-size:12px;color:var(--muted)}
+.dot{width:7px;height:7px;border-radius:50%;background:#E6D5C3;transition:all .25s}
+.dot.on{background:var(--blush-deep);width:18px;border-radius:4px}
 .acts{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:8px 12px calc(10px + var(--sb));background:rgba(255,248,242,.96);border-top:1px solid var(--border);z-index:20;display:flex;flex-direction:column;gap:6px}
-.acts-legal{font-size:10px;color:var(--light);text-align:center;line-height:1.4}
+.acts-legal{font-size:11px;color:var(--muted);text-align:center;letter-spacing:1px}
+.acts-legal span{display:block;font-size:10px;color:var(--light);letter-spacing:0}
 .acts-row{display:flex;gap:8px}
 .acts-row button{flex:1;padding:12px 4px;border-radius:24px;font-size:13px;font-weight:700;cursor:pointer}
 .bo{border:1.5px solid var(--main);background:#fff;color:var(--deep)}
-.bp{border:none;background:linear-gradient(135deg,#A9D4B8,#7FB496);color:var(--ink)}
-.ov{position:fixed;inset:0;background:rgba(74,63,53,.88);z-index:200;display:none;flex-direction:column;align-items:center;padding:16px 16px calc(16px + var(--sb));overflow-y:auto}
+.bp{border:none;background:linear-gradient(135deg,#F3D2C8,#E7B2A6);color:#5C3F38}
+.ov{position:fixed;inset:0;background:rgba(74,63,53,.82);z-index:200;display:none;flex-direction:column;align-items:center;padding:16px 16px calc(16px + var(--sb));overflow-y:auto}
 .ov.show{display:flex}
-.ov img{width:100%;max-width:400px;border-radius:12px}
+.ov img{width:min(100%,400px);border-radius:16px;background:#FFF8F2}
 .ovh{color:#FFF8F2;font-size:14px;margin:8px 0 12px}
 .ovb{display:flex;gap:10px;width:100%;max-width:400px;margin-top:12px}
 .ovb button{flex:1;padding:12px;border:none;border-radius:22px;font-size:15px;font-weight:700;cursor:pointer}
 .toast{position:fixed;bottom:120px;left:50%;transform:translateX(-50%);background:rgba(74,63,53,.92);color:#FFF8F2;padding:10px 20px;border-radius:20px;font-size:13px;z-index:300;opacity:0;transition:opacity .3s;pointer-events:none;max-width:90%;text-align:center}
 .toast.show{opacity:1}
-.code-mask{position:fixed;inset:0;background:rgba(74,63,53,.45);z-index:150;display:none;align-items:center;justify-content:center;padding:20px}
+.code-mask{position:fixed;inset:0;background:rgba(74,63,53,.4);z-index:150;display:none;align-items:center;justify-content:center;padding:20px}
 .code-mask.show{display:flex}
-.code-panel{width:100%;background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:24px 20px 20px;box-shadow:0 12px 40px rgba(74,63,53,.16);text-align:center}
+.code-panel{width:100%;background:#fffdf9;border:1.5px solid var(--border);border-radius:22px;padding:24px 20px 20px;box-shadow:0 12px 40px rgba(74,63,53,.14);text-align:center}
 .code-panel h3{font-size:18px;color:var(--dark);margin-bottom:16px;font-weight:700}
 .code-panel input{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:14px;font-size:18px;color:var(--dark);background:var(--lighter);outline:none;text-align:center;letter-spacing:2px}
 .code-panel input:focus{border-color:var(--main);background:#fff}
@@ -111,25 +113,26 @@ h1 .hl{background:linear-gradient(transparent 62%,#D7EBD9 62%);padding:0 2px}
 .code-hint{margin-top:12px;font-size:12px;color:var(--light);line-height:1.55}
 .code-close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;color:var(--light);cursor:pointer;line-height:1;padding:4px}
 .code-panel-wrap{position:relative;width:100%;max-width:340px}
-@media (prefers-reduced-motion:reduce){.slides,.fill,.bf{transition:none}.loader{animation:none}}
+@media (prefers-reduced-motion:reduce){.slides,.fill{transition:none}.loader{animation:none}.sticker,.orb{transform:none}}
 </style>
 </head>
 <body>
 <section id="start" class="screen active">
   <div class="hero" aria-hidden="true">
     <div class="sat s1">🐱</div>
-    <div class="sat s2">🦊</div>
-    <div class="sat s3">🦢</div>
-    <div class="orb">🦌</div>
+    <div class="sat s2">🦌</div>
+    <div class="sat s3">🐦</div>
+    <div class="orb">🦊</div>
   </div>
-  <div class="start-label">动物塑 · 前世人格</div>
+  <div class="start-label">动物塑 · 前世小笺</div>
   <h1>上辈子是<br><span class="hl">什么动物</span></h1>
-  <p class="desc">如果灵魂可以选一副壳<br>你的气质更接近哪一种</p>
-  <div class="pills"><span class="pill">14 道情境题</span><span class="pill">12 种动物</span><span class="pill">约 2 分钟</span></div>
+  <p class="desc">十二张贴纸里，有一张写着你的气质<br>测完可以报给朋友</p>
+  <div class="pills"><span class="pill">12 道日常小题</span><span class="pill">12 种动物</span><span class="pill">约 2 分钟</span></div>
   <button class="btn-primary" id="btnStart" type="button">开始测试</button>
   <button class="btn-ghost" id="btnLast" type="button" hidden>查看上次结果</button>
   <p class="hint">单选 · 没有标准答案 · 结果可左右滑动</p>
-  <p class="legal start-legal">本测试仅供娱乐，不构成任何医学或心理诊断依据</p>
+  <p class="legal start-legal">趣味娱乐，仅供玩乐</p>
+  <p class="legal-dim">本测试仅供娱乐，不构成任何医学或心理诊断依据</p>
 </section>
 <section id="quiz" class="screen">
   <div class="qh"><div class="qrow"><button class="qback" id="qback" type="button">← 上一题</button><span class="qprog" id="qprog"></span></div><div class="track"><div class="fill" id="fill"></div></div></div>
@@ -137,16 +140,16 @@ h1 .hl{background:linear-gradient(transparent 62%,#D7EBD9 62%);padding:0 2px}
 </section>
 <section id="loading" class="screen">
   <div class="loader"></div>
-  <div style="font-weight:700;color:var(--deep)">正在辨认你的前世轮廓…</div>
+  <div style="font-weight:700;color:var(--deep)">正在拆开你的前世贴纸…</div>
   <div style="font-size:13px;color:var(--light);margin-top:6px">十二种灵魂里，有一只在向你点头</div>
 </section>
 <section id="result" class="screen">
-  <div class="rtop"><span>你的前世动物</span><span id="ind">1 / 6</span></div>
+  <div class="rtop"><span>前世小笺</span><span id="ind">1 / 4</span></div>
   <div class="wrap" id="wrap"><div class="slides" id="slides"></div></div>
-  <p class="swh">← 左右滑动查看完整结果 →</p>
+  <p class="swh">← 左右滑动，把结果看完 →</p>
   <div class="dots" id="dots"></div>
   <div class="acts">
-    <p class="acts-legal">本测试仅供娱乐，不构成任何医学或心理诊断依据</p>
+    <p class="acts-legal">趣味娱乐，仅供玩乐<span>本测试仅供娱乐，不构成任何医学或心理诊断依据</span></p>
     <div class="acts-row">
       <button class="bo" id="btnRetry" type="button">重新测试</button>
       <button class="bo" id="btnCopy" type="button">复制文案</button>
@@ -155,7 +158,7 @@ h1 .hl{background:linear-gradient(transparent 62%,#D7EBD9 62%);padding:0 2px}
   </div>
 </section>
 <div class="ov" id="ov">
-  <div class="ovh">长按图片保存，或点击下载</div>
+  <div class="ovh">长按图片保存，报给朋友</div>
   <img id="shareImg" alt="分享图">
   <div class="ovb">
     <button id="btnDl" type="button" style="background:#fff;color:var(--deep)">下载</button>
@@ -177,296 +180,127 @@ h1 .hl{background:linear-gradient(transparent 62%,#D7EBD9 62%);padding:0 2px}
 <noscript><p style="padding:24px;text-align:center">请开启 JavaScript 后使用本测验。</p></noscript>
 <script>
 const DIM_IDS=['social','soft','wild','clever','steady','play'];
-const DIM_LABEL={social:'外向热闹',soft:'温柔敏感',wild:'自由野性',clever:'机智多谋',steady:'沉稳可靠',play:'活泼玩心'};
-const SLIDES=6;
+const SLIDES=4;
+const FOOTER='趣味娱乐，仅供玩乐';
 const DISCLAIMER='本测试仅供娱乐，不构成任何医学或心理诊断依据';
 const URL_='https://zengpenghui420-glitch.github.io/animal-past/';
 const CODE_RE=/^AP[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{4}$/;
 
-/* ideals are the design vectors. dom is the story dimension used only to break exact distance ties. */
 const ANIMALS=[
- {id:'cat',name:'猫',emoji:'🐱',bg:'#F3E6DC',dom:'clever',
-  tagline:'优雅独立的观察者',tags:['独立','边界感','慵懒美学'],
+ {id:'cat',name:'猫',title:'窗边观世',emoji:'🐱',bg:'#F3E6DC',dom:'clever',rare:'大众',
+  tags:['独立','边界感','慵懒'],
   ideal:{social:2,soft:6,wild:5,clever:7,steady:5,play:4},
-  whisper:'你不必时时到场，你的在场本身就很完整。',
-  traits:[
-    '你更像一只坐在窗边的猫：热闹可以路过，但你的节奏自己说了算。别人觉得你高冷的时候，你多半只是在保存电量。',
-    '你观察得很细，却不急着表态。一句随口的话、一个停顿的眼神，你都收着，等真正值得的时候才把真心放出来。',
-    '你的温柔不是黏上来的那种，是「我在，但你也要有自己的位置」。边界感对你来说不是冷淡，是尊重。'
-  ],
-  interact:{
-    friend:'和你做朋友会很轻松，只要别随时查岗。你记得重要的日子，也给对方留白。适合能一起安静待着、也能各忙各的人。',
-    love:'你要的亲密是并肩，不是缠绕。对方若懂你的「我想你，但先让我待一会儿」，关系会又稳又软。',
-    work:'你适合有自主权的位置。目标清楚、会议少一点，你会把事情做得漂亮。被盯着盯着，你会想从窗台离开。'
-  },
-  suits:[
-    ['有光的安静角落','一个人的下午、窗台和不必说话的陪伴，比热闹局更像你的充电座。'],
-    ['审美在线的小事','你在意杯子、光线和句子的质地，这些小东西会让你真的放松。'],
-    ['懂分寸的人','能靠近、也能自己待着的朋友，最容易走进你的生活。']
-  ],
-  watchout:'你有时把「我没事」说得太熟练，别人真的会以为你不需要被靠近。想被理解的时候，可以少留一层台阶。',
-  lines:['我不是不爱，只是爱的时候也要留一扇窗。','今天的阳光刚好，先别叫我去社交。','你忙你的，我在这儿看着就好。'],
-  closing:'气质上，你更接近一只懂得自我安排的猫。'},
- {id:'shiba',name:'柴犬',emoji:'🐶',bg:'#F6E3D4',dom:'social',
-  tagline:'嘴硬心软的小太阳',tags:['忠心','别扭可爱','情绪价值'],
+  blurb:'你不是冷，你是把自己放在刚好的距离上。热闹可以路过，但你的节奏自己说了算。你看得细，却不急着表态；被人说高冷的时候，你多半只是在保存电量。你的温柔靠得很近，也始终留着一扇窗。',
+  letter:'你可以靠近，但请顺便把门带上一点。',
+  advice:'跟你相处，别随时查岗。朋友之间留白就很舒服，恋人要懂并肩而不是缠绕，共事时把自主权给你，你会把事情做得漂亮。',
+  blind:'你有时把「我没事」说得太熟练。想被理解的时候，可以少留一层台阶。',
+  with:['deer','snowfox'], clash:'squirrel'},
+ {id:'shiba',name:'柴犬',title:'嘴硬心软',emoji:'🐶',bg:'#F6E3D4',dom:'social',rare:'大众',
+  tags:['忠心','别扭','热乎'],
   ideal:{social:7,soft:5,wild:4,clever:3,steady:6,play:7},
-  whisper:'你嘴上说随便，心里已经把人放在最前面了。',
-  traits:[
-    '你表面大大咧咧，其实把在乎的人记得很清楚。嘴上哼一声，转头就把对方爱吃的留好了。',
-    '你给身边的人一种很具体的开心：会接话、会哄、会在冷场时把气氛托住。别人靠你暖一暖，你也乐在其中。',
-    '你认人。一旦把谁划进自己人，你会护得很认真，只是表达方式常常拐一个弯。'
-  ],
-  interact:{
-    friend:'你是那种会吐槽、也会到场的朋友。适合能接住你玩笑、同时懂你认真的人。',
-    love:'亲密关系里你又热又别扭。你需要对方听懂反话，也需要偶尔被直接夸一句，别总让你自己把场面圆回来。',
-    work:'你适合有协作、有反馈的团队。太冷的环境会让你的热气慢慢熄掉。你靠谱，但别把所有人都扛成习惯。'
-  },
-  suits:[
-    ['热闹但不刻薄的小圈子','你喜欢有来有回的玩笑，不喜欢拿人开刀的那种热闹。'],
-    ['饭桌和具体的关心','一句「吃了吗」对你来说可以是很认真的情话。'],
-    ['愿意被你护着的人','你的忠心给得出去，也希望对方别把它当成理所当然。']
-  ],
-  watchout:'你习惯用玩笑盖住委屈。久了，别人只看见小太阳，看不见你也想被晒一晒。',
-  lines:['我才没有在等你，我只是刚好还没走。','今天也要开心一点，这件事我可以负责。','说好了是自己人，就不许掉链子。'],
-  closing:'你的灵魂更像一只嘴硬心软的柴犬，热乎，也认路。'},
- {id:'rabbit',name:'兔子',emoji:'🐰',bg:'#F8E8EE',dom:'soft',
-  tagline:'软乎乎的敏感小天使',tags:['温柔','警觉','需要安全感'],
+  blurb:'你嘴上常说随便，心里早就把在乎的人排到前面了。你会吐槽，也会到场；会把冷掉的气氛托住，再把委屈藏进玩笑里。别人靠你暖一暖，你其实也想被晒到。认定了的人，你护得很认真。',
+  letter:'我的好都是真的，只是经常绕路才说出口。',
+  advice:'你适合能接住玩笑、也听得懂认真的人。别总让你一个人把场面圆回来，偶尔直接夸你一句，你会亮很久。',
+  blind:'玩笑盖住委屈盖久了，别人就只看见小太阳，看不见你也想被晒一晒。',
+  with:['dolphin','rabbit'], clash:'crow'},
+ {id:'rabbit',name:'兔子',title:'软耳听风',emoji:'🐰',bg:'#F8E8EE',dom:'soft',rare:'大众',
+  tags:['温柔','警觉','安全感'],
   ideal:{social:3,soft:9,wild:2,clever:4,steady:4,play:5},
-  whisper:'你的敏感不是娇气，是你比别人更早听见风吹草动。',
-  traits:[
-    '你很容易感到气氛的变化。一句话的轻重、房间里谁不高兴，你都先知道了，然后默默把自己的声音放轻。',
-    '你对人柔软，也因此很挑环境。安全的时候，你会露出又软又好相处的那一面；不安全的时候，你先把自己收回去。',
-    '你不是没有主见，你只是不想用尖锐的方式赢。你希望大家都舒服，包括你自己。'
-  ],
-  interact:{
-    friend:'你适合慢热、说话有分寸的朋友。突然被起哄，会让你想先退出半步。',
-    love:'亲密关系里你付出细，也怕忽冷忽热。你需要稳定的回应，而不是用刺激来证明在乎。',
-    work:'你适合节奏清楚、评价善意的环境。当众被点名批评，会让你很久才缓过来。'
-  },
-  suits:[
-    ['被温柔对待的关系','你在安全的语气里才会把真正的想法说完。'],
-    ['可以随时撤退的座位','靠门的位置、能暂停的聊天，会让你待得更久。'],
-    ['柔软的日常','光线、毯子、慢慢喝完的一杯东西，都是你的安定剂。']
-  ],
-  watchout:'警觉是你的天赋，也会让你把还没发生的拒绝提前演一遍。可以等对方真的走近，再决定要不要离开。',
-  lines:['我不是胆小，我只是想先确认这里安全。','你轻轻说话的时候，我才听得见自己。','请记得，软也是一种力量。'],
-  closing:'你更像一只需要被好好安放的兔子，柔软，而且警醒。'},
- {id:'fox',name:'狐狸',emoji:'🦊',bg:'#F6E4D4',dom:'clever',
-  tagline:'聪明神秘的故事收集者',tags:['机智','魅力','若即若离'],
-  ideal:{social:5,soft:4,wild:6,clever:9,steady:3,play:5},
-  whisper:'你看见故事的缝，也知道什么时候不把谜底说完。',
-  traits:[
-    '你脑子转得快，也喜欢留一点没说完的话。别人觉得你难懂，其实你只是不想把所有底牌一次摊开。',
-    '你对人有魅力，因为你会看场合：该幽默的时候幽默，该抽身的时候抽身。你很少被场面带着走。',
-    '你收集细节，也收集人心的转折。你不是为了算计才观察，你只是觉得世界这样看更有意思。'
-  ],
-  interact:{
-    friend:'你适合聪明、不黏人的朋友。能一起聊得很深，也能几天不说话，关系还在。',
-    love:'你要的是有一点张力的靠近。太直白你会觉得没意思，太绕你也会累。最好是彼此都有故事，也愿意偶尔交底。',
-    work:'你适合需要判断、表达和周旋的位置。重复、被管得很死的流程会磨掉你的光。'
-  },
-  suits:[
-    ['夜里的长对话','你在不被催促的时候，才会把真正有意思的部分讲出来。'],
-    ['留白很多的关系','若即若离对你是呼吸，不是故意吊着谁。'],
-    ['可以动脑的游戏','谜题、策划、看穿场面，都会让你眼睛亮起来。']
-  ],
-  watchout:'若即若离用久了，会变成别人不敢认真靠近你。你其实也想被选中，只是不习惯先站定。',
-  lines:['我知道你在想什么，但我不一定说。','谜底可以给你，不过要换一个更好的问题。','别急着定义我，故事还没到那一页。'],
-  closing:'气质上，你更接近一只聪明的狐狸，亮，也留着影子。'},
- {id:'deer',name:'白鹿',emoji:'🦌',bg:'#E7F0E4',dom:'soft',
-  tagline:'清冷灵气的森林使者',tags:['清澈','慢热','贵气'],
+  blurb:'你比别人更早听见空气里的变化。一句重话、一个不高兴的眼神，你都会先放轻自己。这不是娇气，是你很珍惜安全感。环境对的时候，你又软又好相处；不对的时候，你会先把自己轻轻收回来。',
+  letter:'你轻轻说话的时候，我才愿意把耳朵放开。',
+  advice:'慢一点、声音轻一点，你就会把真正的想法说完。忽冷忽热会把你推远，稳定的回应会让你留得很久。',
+  blind:'你有时会把还没发生的拒绝提前演一遍。可以等对方真的走近，再决定要不要离开。',
+  with:['panda','deer'], clash:'wolf'},
+ {id:'snowfox',name:'雪狐',title:'雪夜灵狐',emoji:'🦊',bg:'#F6E4D4',dom:'clever',rare:'少见',
+  tags:['机智','神秘','若即若离'],
+  ideal:{social:4,soft:4,wild:7,clever:9,steady:4,play:4},
+  blurb:'你适合有一点距离的光。你看得远，也不急着把谜底说完。聪明，带一点若即若离，不是算计，是还没决定要不要把真心交出去。别人觉得你难捉摸的时候，你只是想把故事听到最后。',
+  letter:'谜底可以给你，但请换一个更好的问题。',
+  advice:'你需要聪明、也不黏人的距离。太直白你会觉得没意思，太绕你也会累。最好是彼此都有故事，也愿意偶尔交底。',
+  blind:'若即若离用久了，别人会不敢认真靠近。你其实也想被选中，只是不习惯先站定。',
+  with:['cat','crow'], clash:'shiba'},
+ {id:'deer',name:'白鹿',title:'林间清贵',emoji:'🦌',bg:'#E7F0E4',dom:'soft',rare:'少见',
+  tags:['清澈','慢热','分寸'],
   ideal:{social:2,soft:8,wild:5,clever:5,steady:7,play:2},
-  whisper:'你走路很轻，但你走过的地方会安静下来。',
-  traits:[
-    '你给人的第一感觉常常是干净：说话不挤、情绪不闹，存在感却很清楚。你不靠大声让人记住。',
-    '你慢热，认定之前会观察很久。一旦把人放进心里，你的温柔是稳定的，像林间一直在的那条小路。',
-    '你在意美感与分寸。粗糙的催促、过分的起哄，都会让你想退回树影里。'
-  ],
-  interact:{
-    friend:'你适合少而真的朋友。一起散步、一起发呆，比大型聚会更像你。',
-    love:'你的爱很慢，也很郑重。你需要被耐心对待，也愿意用同样的耐心回应对方。',
-    work:'你适合有品质感、少被打断的工作。你不争抢话筒，但你的判断常常更干净。'
-  },
-  suits:[
-    ['清晨和留白','清透的空气、不拥挤的日程，会让你维持那种灵气。'],
-    ['说话轻的人','音量小一点的关系，你才听得见自己要不要靠近。'],
-    ['慢慢认定的位置','你不适合被催着表态，适合被允许观察一阵。']
-  ],
-  watchout:'清冷有时会被误读成疏离。你在乎的人，值得听到一句更明白的「我在」。',
-  lines:['我不吵，不代表我没有站在这里。','慢一点也没关系，林子本来就不赶路。','你若轻轻来，我会把好位置让给你。'],
-  closing:'你的灵魂更像林间的白鹿，清、稳，而且不好凑热闹。'},
- {id:'panda',name:'熊猫',emoji:'🐼',bg:'#E7F3EA',dom:'steady',
-  tagline:'治愈系佛系团子',tags:['松弛','吃货快乐','不内耗'],
+  blurb:'你走路很轻，存在感却很清楚。你不靠大声让人记住，你靠干净的分寸。慢热不是疏离，是你要先确认这条路值不值得走。一旦认定，你的温柔会很稳，像林子里一直都在的那条小路。',
+  letter:'慢一点没关系，林子本来就不赶路。',
+  advice:'少而真的人最适合你。一起散步、一起发呆，比大声的局更像你。你在乎的人，值得听到一句更明白的「我在」。',
+  blind:'清冷有时会被看成疏离。你不是不在，你只是还没把话说响。',
+  with:['swan','cat'], clash:'squirrel'},
+ {id:'panda',name:'熊猫',title:'松弛治愈',emoji:'🐼',bg:'#E7F3EA',dom:'steady',rare:'大众',
+  tags:['松弛','热食','不内耗'],
   ideal:{social:4,soft:7,wild:2,clever:3,steady:8,play:4},
-  whisper:'你天生会把紧绷的空气揉软。',
-  traits:[
-    '你不太跟自己过不去。事情可以认真做，但你拒绝把人生过成一张永远做不完的试卷。',
-    '你的治愈很日常：吃点好吃的、睡个好觉、对别人说「没事的」。你在的地方，别人会不自觉地松一口气。',
-    '你看着佛系，其实心里有自己的节奏。你只是不把焦虑当作成熟的证明。'
-  ],
-  interact:{
-    friend:'你是朋友里的缓冲区。适合跟你会一起吃饭、不互相比较的人。',
-    love:'恋爱里你给得稳、要得少，但你也需要对方别把你的好脾气当成无限兜底。',
-    work:'你适合目标清楚、不必表演忙碌的环境。你能把事做完，同时保住大家的心情。'
-  },
-  suits:[
-    ['好吃的和午睡','具体的快乐对你很有效，不必每次都升华。'],
-    ['不比较的关系','谁也不用赢过谁的相处，你会待得很久。'],
-    ['允许慢慢来的节奏','你不是拖延，你是在把事情放回能完成的尺寸。']
-  ],
-  watchout:'太能「算了」的时候，你的需求会排到最后。偶尔也可以说：这次我想被照顾。',
-  lines:['先吃饭，有力气再把天撑住。','我不是不上心，我是不想内耗。','过来，这边比较软。'],
-  closing:'你更像一只熊猫，松弛是天赋，不是偷懒。'},
- {id:'owl',name:'猫头鹰',emoji:'🦉',bg:'#E6E7F4',dom:'clever',
-  tagline:'夜间清醒的智慧看守',tags:['洞察','独处','冷幽默'],
-  ideal:{social:1,soft:5,wild:4,clever:8,steady:7,play:2},
-  whisper:'夜深的时候，你看得比白天更清楚。',
-  traits:[
-    '你习惯在别人都散了以后，才把今天真正想清楚。你的洞察不吵闹，常常是事后一句很准的话。',
-    '你享受独处。那不是孤僻，是你的脑子需要安静才能工作。人多的时候你在看，人少的时候你在想。',
-    '你的幽默偏冷，懂的人会会心。你不靠热络建立信任，你靠判断。'
-  ],
-  interact:{
-    friend:'你适合能承受沉默、也欣赏你真话的朋友。深夜一条消息，比白天的群聊更像你。',
-    love:'你爱得克制而深。你需要空间，也需要一个不怕你安静的人。',
-    work:'你适合研究、判断、把复杂事情看透的角色。频繁的应酬会消耗你真正的力气。'
-  },
-  suits:[
-    ['夜晚和书','你的清醒常常发生在别人已经睡了的时候。'],
-    ['一对一的深谈','人少的时候，你愿意把看见的东西翻译出来。'],
-    ['不被催着表态的位置','你的好答案通常比第一反应晚到一会儿。']
-  ],
-  watchout:'你有时看得太透，懒得解释。别人会以为你冷，其实你只是把话省给了值得的人。可以偶尔翻译一下自己。',
-  lines:['我醒着，不是因为焦虑，是因为夜色刚好。','有些话，白天不适合说。','你若愿意安静坐一会儿，我就把看见的告诉你。'],
-  closing:'气质上，你更接近夜里那只清醒的猫头鹰。'},
- {id:'dolphin',name:'海豚',emoji:'🐬',bg:'#E3F2F4',dom:'social',
-  tagline:'会读空气的快乐知心人',tags:['共情','团队','治愈力'],
+  blurb:'你不太跟自己过不去。事情可以认真做，但你拒绝把日子过成一张做不完的卷子。你在的地方，别人会不自觉松一口气。你的治愈很具体：吃好一点，睡好一点，再说一句没事。松弛是你的天赋。',
+  letter:'先吃口热的，天大的事也要有力气再撑。',
+  advice:'你是朋友里的缓冲区。适合一起吃饭、不互相比较的人。也请别人别把你的好脾气当成永远的兜底。',
+  blind:'太能「算了」的时候，你的需求会排到最后。偶尔也可以说：这次想被照顾。',
+  with:['rabbit','penguin'], clash:'wolf'},
+ {id:'crow',name:'乌鸦',title:'高枝独醒',emoji:'🐦',bg:'#E7E4F1',dom:'clever',rare:'天花板',
+  tags:['洞察','独处','冷幽默'],
+  ideal:{social:1,soft:3,wild:5,clever:9,steady:8,play:1},
+  blurb:'你习惯站在高处把场面看完。夜深以后，你才把今天真正想清楚。你的话不多，但常常很准；你的幽默偏冷，懂的人会会心。你不是不合群，你只是把真心留给还醒着、也值得的那根高枝。',
+  letter:'有些话，只留给还醒着的人。',
+  advice:'你适合能承受沉默、也欣赏真话的人。深夜一条消息，比白天的热闹更像你。别催你立刻表态，你的好答案通常晚到一会儿。',
+  blind:'看得太透的时候，你会懒得解释。别人会以为你冷，其实你只是把话省给了值得的人。',
+  with:['snowfox','wolf'], clash:'dolphin'},
+ {id:'dolphin',name:'海豚',title:'浪尖知心',emoji:'🐬',bg:'#E3F2F4',dom:'social',rare:'少见',
+  tags:['共情','团队','回应'],
   ideal:{social:8,soft:8,wild:5,clever:6,steady:4,play:7},
-  whisper:'你游进人群里，是为了让大家一起浮上来。',
-  traits:[
-    '你很会读空气，也真的在乎空气里的每个人过不过得好。你不是讨好，你是自然地想把关系调顺。',
-    '你自己也需要快乐。一个人闷太久，你会失去光；和对的人在一起，你会变得又亮又有力气。',
-    '你的共情很强，能接住别人的情绪，也能把沉重的话题变得还能呼吸。'
-  ],
-  interact:{
-    friend:'你是团体里的粘合剂。适合珍惜你、而不是只在需要倾诉时才找你的朋友。',
-    love:'你适合双向的亲密。你愿意陪，也希望对方看得到你的心情，而不只是你的好用。',
-    work:'你适合协作、沟通、需要把人连起来的位置。长期孤立的岗位会让你慢慢失去精神。'
-  },
-  suits:[
-    ['一起玩的同伴','你的快乐需要有人接住，一个人完成也可以，但会少一半光。'],
-    ['开阔的地方','空间大一点、空气流通一点，你的心情会跟着起来。'],
-    ['有回应的聊天','你不怕深，你怕说完以后只有自己的回声。']
-  ],
-  watchout:'太会照顾场子的人，容易忘记自己也在场上。你的情绪也值得被先听见一次。',
-  lines:['过来呀，一个人游没那么好玩。','我听得见你没说出口的那句。','我们一起浮上去，好不好。'],
-  closing:'你的灵魂更像海豚，快乐，而且真的在乎同伴。'},
- {id:'wolf',name:'狼',emoji:'🐺',bg:'#E8E6F1',dom:'wild',
-  tagline:'义气孤傲的夜行者',tags:['忠诚小圈','原则','保护欲'],
+  blurb:'你走进人群，常常是为了让大家都好过一点。你读得懂空气，也真的在乎空气里的人。这不是讨好，是你天生会把关系调顺。你自己也需要被回应。一个人闷太久，你的光会慢慢暗下去。',
+  letter:'过来呀，一个人游没那么好玩。',
+  advice:'你适合双向的关系：你愿意陪，也希望对方看得到你的心情，而不只是在你有用的时候才来找你。',
+  blind:'太会照顾场子的人，容易忘记自己也在场上。你的情绪也值得被先听见一次。',
+  with:['shiba','squirrel'], clash:'crow'},
+ {id:'wolf',name:'狼',title:'夜行守约',emoji:'🐺',bg:'#E8E6F1',dom:'wild',rare:'少见',
+  tags:['小圈子','原则','护短'],
   ideal:{social:3,soft:3,wild:8,clever:6,steady:7,play:3},
-  whisper:'你的世界不大，但进了门的人，你会护到底。',
-  traits:[
-    '你不喜欢泛泛的热闹。你的忠诚很窄，也很硬：自己人的事，你会站出来；不是自己人的评价，你不太放在心上。',
-    '你有原则。能商量的你会商量，碰到底线你会变得很安静，也很坚决。',
-    '你看着有点孤，其实是在挑值得同行的人。一旦同行，你不太会半路丢下谁。'
-  ],
-  interact:{
-    friend:'你适合小圈子。很多点头之交，不如两三个能托付后背的人。',
-    love:'你爱起来很专，保护欲也强。你需要对方尊重你的节奏，也别用试探底线来证明什么。',
-    work:'你适合责任清楚、团队不大的位置。你能扛事，但讨厌被当众摆布。'
-  },
-  suits:[
-    ['少数深交','你的好不是平均分给所有人的。'],
-    ['说到做到的人','承诺对你很重，你也只把重的承诺交给靠谱的人。'],
-    ['能自己走的路','你需要空间去判断，而不是被人群推着表态。']
-  ],
-  watchout:'孤傲能保护你，也会把想靠近的人挡在门外。不是所有示好都是冒犯。',
-  lines:['我的圈子很小，但每一个都算数。','你可以走慢一点，我看着后面。','原则这种东西，我不拿来讨价还价。'],
-  closing:'你更像一头认路的狼，独行可以，同行就很真。'},
- {id:'penguin',name:'企鹅',emoji:'🐧',bg:'#E5F1F4',dom:'steady',
-  tagline:'呆萌执着的仪式感选手',tags:['专一','秩序','反差萌'],
+  blurb:'你的世界不大，进了门的人你才会护到底。你不爱泛泛的热闹，你在乎原则，也在乎很小的圈子。能商量的你会商量，碰到底线就很安静，也很坚决。你看着孤，其实是在挑值得同行的人。',
+  letter:'我的圈子很小，但每一个都算数。',
+  advice:'两三个能托付后背的人，比一桌子点头之交更适合你。尊重你的节奏，也别用试探底线来证明什么。',
+  blind:'孤傲能护住你，也会把想靠近的人挡在门外。不是所有示好都是冒犯。',
+  with:['deer','crow'], clash:'dolphin'},
+ {id:'penguin',name:'企鹅',title:'摇步专一',emoji:'🐧',bg:'#E5F1F4',dom:'steady',rare:'少见',
+  tags:['专一','秩序','反差'],
   ideal:{social:5,soft:6,wild:2,clever:4,steady:8,play:5},
-  whisper:'你走路的样子可以晃，但你要去的地方从不会搞错。',
-  traits:[
-    '你喜欢可重复的小仪式：固定的路、固定的问候、把事情排好再开始。秩序让你安心，也让你显得认真得有点可爱。',
-    '你看着憨，其实很执着。认定的人、认定的标准，你会一次一次做到，不靠一时热情。',
-    '你有一种反差：正经起来很板正，放松下来又会让人忍不住笑。你自己知道，也不太介意。'
-  ],
-  interact:{
-    friend:'你适合守信的朋友。临时放鸽子会让你难过很久，而你几乎不会这样对别人。',
-    love:'你的爱是长期的。纪念日、习惯、一起走的路，对你来说都是在说「我还在」。',
-    work:'你适合流程清楚、能看到累积的工作。你是那种把细节守住的人。'
-  },
-  suits:[
-    ['固定的小习惯','重复不是无聊，是你确认世界还在的方式。'],
-    ['靠谱的搭档','你愿意慢，但不愿意和总是改口的人绑在一起。'],
-    ['有始有终的计划','你喜欢看见一条路被走完，而不是开了十个坑。']
-  ],
-  watchout:'太依赖仪式的时候，计划一变你会整个人卡住。可以留一个「乱一点也没关系」的口袋。',
-  lines:['我看起来在晃，其实我在坚持。','这条路我们昨天走了，今天还要走。','你若也守时，我就把心交给你。'],
-  closing:'气质上，你更接近一只又认真又有点呆的企鹅。'},
- {id:'squirrel',name:'松鼠',emoji:'🐿️',bg:'#F6EAD8',dom:'play',
-  tagline:'停不下来的小 vivace',tags:['好奇','囤积能量','碎嘴可爱'],
+  blurb:'你喜欢可以重复的小仪式：同一条路、同一句问候、把事情排好再开始。你看着有点呆，其实非常执着。认定的人和标准，你会一次一次做到。计划乱了你会卡住，但你几乎从不先失约。',
+  letter:'你若也守时，我就把心交给你。',
+  advice:'你适合说到做到的人。纪念日、固定的路、有始有终的计划，都是你在说「我还在」。临时放鸽子会让你难过很久。',
+  blind:'太依赖仪式的时候，计划一变你会整个人卡住。可以留一个「乱一点也没关系」的口袋。',
+  with:['panda','swan'], clash:'snowfox'},
+ {id:'squirrel',name:'松鼠',title:'跳枝藏宝',emoji:'🐿️',bg:'#F6EAD8',dom:'play',rare:'大众',
+  tags:['好奇','囤能量','碎碎念'],
   ideal:{social:6,soft:4,wild:5,clever:5,steady:2,play:9},
-  whisper:'你的一天是由很多个「再看一眼」组成的。',
-  traits:[
-    '你停不下来，不一定是焦虑，是世界对你来说分叉太多：这条消息、那个念头、窗台上忽然的光，都值得转头。',
-    '你话比别人密一点，也比别人更快找到好玩的点。跟你待着，时间会变碎、变亮。',
-    '你喜欢囤：收藏夹、零食、没说完的计划。那是你的能量仓库。'
-  ],
-  interact:{
-    friend:'你适合跟得上你跳跃、也不嫌你碎碎念的朋友。你会把快乐分装成很多小份送出去。',
-    love:'你需要一个觉得你的热闹可爱、而不是总让你安静点的人。你也会为对方收集很多小惊喜。',
-    work:'你适合变化多、能发挥好奇的位置。一成不变的表格会把你的尾巴缠住。'
-  },
-  suits:[
-    ['新鲜的小发现','你靠新东西续电，重复太久会让你打蔫。'],
-    ['可以分享的碎碎念','说出来的念头，对你来说才算真正发生过。'],
-    ['允许走神的下午','你的好点子常常出现在正事旁边。']
-  ],
-  watchout:'好奇若没有落点，你会同时打开太多树洞，最后哪一颗都没藏好。选一件今天先完成，也很好玩。',
-  lines:['等等，我又发现一个东西。','我不是话多，我是库存太多。','你听我说完这一句，下一句更好玩。'],
-  closing:'你的灵魂更像一只松鼠，亮晶晶，而且随时准备再跳一下。'},
- {id:'swan',name:'天鹅',emoji:'🦢',bg:'#F8EEF2',dom:'soft',
-  tagline:'高敏优雅的审美主义者',tags:['体面','深情','完美主义'],
+  blurb:'你的一天由很多个「再看一眼」组成。新消息、新念头、窗台上忽然的光，都值得转头。你话密一点，也更快找到好玩的点。跟你待着，时间会变碎、变亮。你囤下来的不是杂物，是还没花掉的能量。',
+  letter:'你听完这一句，下一句更好玩。',
+  advice:'你需要觉得你的热闹可爱、而不是总让你安静的人。变化多一点的日子你会发光；一成不变的表格会把你的尾巴缠住。',
+  blind:'好奇若没有落点，你会同时打开太多树洞。选一件今天先完成，也很好玩。',
+  with:['dolphin','shiba'], clash:'deer'},
+ {id:'swan',name:'天鹅',title:'水面深情',emoji:'🦢',bg:'#F8EEF2',dom:'soft',rare:'少见',
+  tags:['体面','深情','讲究'],
   ideal:{social:3,soft:8,wild:3,clever:6,steady:6,play:2},
-  whisper:'你把日子过成样子，是因为你心里有一条很深的河。',
-  traits:[
-    '你在意体面，不是为了给别人看，是你自己过不去粗糙。事情可以慢，但不能将就到失真。',
-    '你感受力很强，也容易因为一个细节回想很久。你的深情不是轰烈的，是认准了就很久。',
-    '你看起来从容，水面下的脚一直在轻轻划。你愿意为了「好一点」多付出，也因此容易累。'
-  ],
-  interact:{
-    friend:'你适合懂分寸、审美接近的朋友。太吵、太随便的关系，你会礼貌地游远。',
-    love:'你爱得很认真，也希望被认真对待。敷衍是你最受不了的东西，哪怕对方本意不坏。',
-    work:'你适合有完成度要求的位置。你能把东西做漂亮，也要小心把标准加成对自己的苛责。'
-  },
-  suits:[
-    ['干净的完成','你需要看见一件事被好好做完，而不是差不多就行。'],
-    ['被珍惜的仪式','形式对你不是空的，它是在乎的形状。'],
-    ['说话算话的人','你可以把深情给很久，但不想把它交给轻飘飘的承诺。']
-  ],
-  watchout:'完美主义会让你迟迟不肯入水。有时候，够好的一刻，就已经值得被看见。',
-  lines:['我可以等，但我不想将就。','水面看起来平静，是因为我在认真游。','你若也把我当一回事，我会记得很远。'],
-  closing:'你更像一只天鹅，体面下面是很深的在意。'}
+  blurb:'你在意体面，不是为了做给别人看，是你自己过不去粗糙。你感受得很深，认准了就会很久。水面看起来平静，是因为你一直在认真地游。你值得被认真对待，也不必为了完美，迟迟不肯入水。',
+  letter:'我可以等，但我不想将就。',
+  advice:'你适合懂分寸、也把你当一回事的人。敷衍是你最受不了的东西。形式对你不是空的，它是在乎的形状。',
+  blind:'完美主义会让你迟迟不肯开始。够好的一刻，就已经值得被看见。',
+  with:['deer','cat'], clash:'squirrel'}
 ];
 
 const Q=[
  {e:'☁️',t:'周末醒来，第一反应更像？',o:[
   ['立刻想约人出门',{social:2,play:1}],
   ['先赖床刷手机',{steady:1,soft:1}],
-  ['独自出门散步或喝一杯',{wild:1,clever:1}],
-  ['计划一天的任务清单',{steady:2}]]},
- {e:'💬',t:'朋友圈有人 @ 你争论，你会？',o:[
-  ['下场讲清楚',{social:1,clever:1}],
-  ['私聊对方缓和',{soft:2,social:1}],
-  ['看戏不说话',{clever:2,steady:1}],
-  ['直接静音离开',{wild:1,soft:-1}]]},
- {e:'🏡',t:'理想的住所有点像？',o:[
-  ['市中心热闹公寓',{social:2,play:1}],
-  ['安静小区，窗台有阳光',{soft:1,steady:1}],
-  ['靠山靠海，随时能走',{wild:3}],
-  ['极简整洁的美学空间',{soft:1,steady:1,clever:1}]]},
+  ['独自出门散步/咖啡',{wild:1,clever:1}],
+  ['计划一天任务清单',{steady:2}]]},
+ {e:'💬',t:'有人当众顶你，你更常？',o:[
+  ['当场讲清楚',{social:1,clever:1}],
+  ['私下缓和，不想撕破',{soft:2,social:1}],
+  ['先看完再决定说不说',{clever:2,steady:1}],
+  ['直接离开这个场',{wild:1,soft:-1}]]},
+ {e:'🌿',t:'团队里，你更常扮演？',o:[
+  ['把大家聚起来的人',{social:2,play:1}],
+  ['照顾情绪、打圆场的人',{soft:2,social:1}],
+  ['出主意、看清局面的人',{clever:2,wild:1}],
+  ['把事情守完的人',{steady:2}]]},
  {e:'🌷',t:'别人夸你，你最开心被说？',o:[
   ['「很好玩，跟你待着不累」',{play:2,social:1}],
   ['「好温柔，好会照顾人」',{soft:2}],
@@ -474,67 +308,56 @@ const Q=[
   ['「好靠谱，让人安心」',{steady:2}]]},
  {e:'🍵',t:'压力大的时候，你更想？',o:[
   ['找人吃饭吐槽',{social:2,soft:1}],
-  ['蒙头睡，或吃点东西治愈',{soft:1,steady:1}],
+  ['蒙头睡，或吃顿好的',{soft:1,steady:1}],
   ['一个人走很远',{wild:2,clever:1}],
-  ['把事情拆开，逐个解决',{clever:1,steady:2}]]},
- {e:'🌿',t:'对「规矩」的态度？',o:[
-  ['规矩是用来灵活用的',{clever:2,wild:1}],
-  ['能守就守，不想添乱',{steady:2,soft:1}],
-  ['讨厌被框住',{wild:3}],
-  ['自己定高标准，并且执行',{steady:1,clever:1,soft:1}]]},
- {e:'💌',t:'恋爱或亲密关系里，你更像？',o:[
-  ['主动制造纪念日和热闹',{social:1,play:2}],
-  ['默默付出，怕对方不开心',{soft:3}],
-  ['需要空间，靠近也要有呼吸感',{wild:1,clever:1,soft:-1}],
-  ['慢热，但认定了就很稳',{steady:2,soft:1}]]},
+  ['把事情拆开逐个解决',{clever:1,steady:2}]]},
+ {e:'🍃',t:'你做事的节奏更像？',o:[
+  ['边玩边做，灵感来了就冲',{play:2,wild:1}],
+  ['按舒服的步调，不跟别人抢',{soft:1,steady:1}],
+  ['讨厌被催，要走自己的路子',{wild:3}],
+  ['先排好，再一步步走完',{steady:2,clever:1}]]},
+ {e:'💌',t:'亲密关系里，你更像？',o:[
+  ['主动制造纪念日与热闹',{social:1,play:2}],
+  ['默默付出、怕对方不开心',{soft:3}],
+  ['需要空间，靠近也要呼吸感',{wild:1,clever:1,soft:-1}],
+  ['慢热但认定了就很稳',{steady:2,soft:1}]]},
  {e:'🫧',t:'群聊突然冷场，你会？',o:[
-  ['丢个梗，把气氛拉起来',{social:2,play:2}],
+  ['丢梗把气氛拉起来',{social:2,play:2}],
   ['私聊某个熟人接话',{soft:1,social:1}],
   ['继续潜水观察',{clever:1,steady:1}],
-  ['退到后台，干自己的事',{wild:1,play:-1}]]},
- {e:'🌙',t:'如果上辈子能选活动时间，你偏好？',o:[
+  ['退到后台干自己的事',{wild:1,play:-1}]]},
+ {e:'🌙',t:'如果梦里有一个属于你的地方，它更像？',o:[
   ['白天热闹的市集',{social:1,play:1}],
-  ['黄昏散步，金色的光线',{soft:1,steady:1}],
-  ['深夜无人的路',{clever:2,wild:1}],
-  ['清晨清透的空气',{soft:1,steady:1,wild:1}]]},
- {e:'🤍',t:'对「被需要」的感觉？',o:[
-  ['很开心，我愿意当气氛组',{social:2,soft:1}],
-  ['可以，但别消耗我太多',{soft:1,clever:1}],
-  ['只要小圈子需要我就够',{steady:1,wild:1}],
-  ['更想被远观，而不是被缠着',{clever:1,soft:1,social:-1}]]},
- {e:'🧳',t:'旅行你更想？',o:[
-  ['跟朋友一起热闹打卡',{social:2,play:1}],
-  ['二人世界慢慢逛',{soft:1,steady:1}],
-  ['说走就走的背包客',{wild:3,play:1}],
-  ['小酒店和美食，提前安排好',{clever:1,steady:2}]]},
- {e:'🪞',t:'别人形容你的反差时，最常听到？',o:[
-  ['看起来凶，其实超好说话',{soft:1,social:1}],
-  ['看起来软，其实有主见',{soft:1,clever:1}],
-  ['看起来闲，其实脑子很忙',{clever:2}],
-  ['看起来乖，其实很能玩',{play:2,social:1}]]},
- {e:'✨',t:'玄学一点：如果灵魂要寄居一段时间，你选？',o:[
-  ['人类热闹的客厅角落',{social:1,play:1}],
   ['被太阳晒暖的窗台',{soft:1,steady:1}],
-  ['风很大的悬崖边',{wild:2,clever:1}],
-  ['安静的图书馆梁上',{clever:1,steady:1}]]},
- {e:'🍃',t:'你希望别人记住你的关键词是？',o:[
-  ['有趣',{play:2,social:1}],
-  ['温暖',{soft:2}],
-  ['自由',{wild:2}],
-  ['聪慧，通透',{clever:2}]]}
+  ['风很大的雪原或悬崖',{wild:2,clever:1}],
+  ['安静的高处，能看见所有人',{clever:2,steady:1}]]},
+ {e:'🤍',t:'你最怕失去的是？',o:[
+  ['热闹，和被陪伴的感觉',{social:2,soft:1}],
+  ['被温柔对待',{soft:2}],
+  ['说走就能走的自由',{wild:2}],
+  ['自己的清醒和判断',{clever:2,steady:1}]]},
+ {e:'🪞',t:'别人形容你的反差时，最常听到？',o:[
+  ['看起来凶其实超好说话',{soft:1,social:1}],
+  ['看起来软其实有主见',{soft:1,clever:1}],
+  ['看起来闲其实脑子很忙',{clever:2}],
+  ['看起来乖其实很能玩',{play:2,social:1}]]},
+ {e:'✨',t:'你觉得灵魂更想安放在？',o:[
+  ['一群人的中间',{social:2,play:1}],
+  ['一个安全的小窝',{soft:2,steady:1}],
+  ['路上，而不是某个固定地址',{wild:2,play:1}],
+  ['高处，安静地看着',{clever:2,social:-1}]]}
 ];
 
-/* ===== STATE ===== */
-let ans=[],qi=0,res=null,pct=0,si=0,userDims=null,others=[],picking=false;
+let ans=[],qi=0,res=null,pct=0,si=0,userDims=null,picking=false;
 const $=id=>document.getElementById(id);
+const byId=id=>ANIMALS.find(a=>a.id===id);
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');scrollTo(0,0)}
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2200)}
 
-/* Scoring: start at 5. Each answer adds its delta minus the average delta of the four options,
-   so picking the low choice actually lowers that trait. Raw sums in the question list are
-   almost all positive; without this, every result collapses toward the high-social animals.
-   Then clamp 0–10 and take the nearest animal by squared Euclidean distance.
-   Exact distance ties prefer the animal whose story dim matches the user's highest dim. */
+/* Scoring: start at 5. Each answer adds its delta minus the average of the four options,
+   so a low choice actually lowers that trait. Then clamp 0–10 and pick the nearest animal
+   by squared Euclidean distance. Exact ties prefer the animal whose story dim matches
+   the user's highest dim. */
 function scoreUser(answers){
   const u={};
   DIM_IDS.forEach(d=>u[d]=5);
@@ -544,8 +367,7 @@ function scoreUser(answers){
     DIM_IDS.forEach(d=>{
       let s=0;
       q.o.forEach(o=>{s+=(o[1][d]||0)});
-      const mean=s/q.o.length;
-      u[d]+=((opt[1][d]||0)-mean);
+      u[d]+=((opt[1][d]||0)-s/q.o.length);
     });
   });
   DIM_IDS.forEach(d=>{u[d]=Math.max(0,Math.min(10,u[d]))});
@@ -569,12 +391,9 @@ function compute(){
   userDims=scoreUser(ans);
   const ranked=rankAnimals(userDims);
   res=ranked[0].a;
-  const bd=ranked[0].d;
-  pct=Math.max(76,Math.min(98,Math.round(98-Math.sqrt(bd)*3.2)));
-  others=ranked.slice(1,4).map(x=>x.a);
+  pct=Math.max(76,Math.min(98,Math.round(98-Math.sqrt(ranked[0].d)*3.2)));
 }
-function dimText(v){return (Math.round(v*10)/10).toFixed(1)}
-
+function sticker(a,cls){return `<div class="${cls||'mini'}" style="background:${a.bg}">${a.emoji}</div>`}
 function renderQ(){
   const q=Q[qi];
   $('qprog').textContent=(qi+1)+' / '+Q.length;
@@ -606,52 +425,33 @@ function pick(i){
 }
 function finish(){
   show('loading');
-  setTimeout(()=>{
-    compute();
-    saveLast();
-    renderR();
-    show('result');
-  },1100);
+  setTimeout(()=>{compute();saveLast();renderR();show('result')},1100);
 }
 function renderR(){
   const c=res;
-  const dims=userDims||c.ideal;
-  const bars=DIM_IDS.map(d=>{
-    const v=Math.max(0,Math.min(10,Number(dims[d])||0));
-    return `<div class="bar-row"><span class="bl">${DIM_LABEL[d]}</span><div class="bt"><div class="bf" data-v="${(v/10*100).toFixed(1)}"></div></div><span class="bs">${dimText(v)}</span></div>`;
-  }).join('');
-  const traits=c.traits.map(t=>`<p class="p">${t}</p>`).join('');
-  const suits=c.suits.map(s=>`<div class="li"><b>${s[0]}</b>${s[1]}</div>`).join('');
-  const rel=(others||[]).map(x=>`<div class="one"><div class="mini" style="background:${x.bg}">${x.emoji}</div><div class="nm">${x.name}</div></div>`).join('');
+  const mates=(c.with||[]).map(byId).filter(Boolean);
+  const clash=byId(c.clash);
+  const mateHtml=mates.map(a=>`<div><div class="mini" style="background:${a.bg}">${a.emoji}</div><div class="nm">${a.name}</div></div>`).join('');
+  const clashHtml=clash?`<div><div class="mini" style="background:${clash.bg}">${clash.emoji}</div><div class="nm">${clash.name}</div></div>`:'';
   $('slides').innerHTML=`
   <div class="slide"><div class="card">
-    <div class="portrait" style="background:${c.bg}">${c.emoji}</div>
-    <div class="pct">${pct}%</div>
-    <div class="pct-cap">气质契合</div>
+    <div class="seal r-${c.rare}">${c.rare}</div>
+    <div class="sticker" style="background:${c.bg}">${c.emoji}</div>
     <div class="bname">${c.name}</div>
-    <div class="tagline">${c.tagline}</div>
+    <div class="title4">${c.title}</div>
     <div class="tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    <p class="whisper">${c.whisper}</p>
+    <div class="pct-soft">气质契合 ${pct}%</div>
   </div></div>
-  <div class="slide"><div class="card"><div class="st"><b>01</b> · 灵魂特征</div>${traits}</div></div>
-  <div class="slide"><div class="card"><div class="st"><b>02</b> · 六维灵魂图谱</div><p class="p" style="margin-bottom:14px">这是你这份答卷在六种气质上的位置，数值越高越靠近这一端。</p>${bars}</div></div>
-  <div class="slide"><div class="card"><div class="st"><b>03</b> · 相处说明书</div>
-    <div class="li"><b>朋友</b>${c.interact.friend}</div>
-    <div class="li"><b>恋人</b>${c.interact.love}</div>
-    <div class="li"><b>同事</b>${c.interact.work}</div>
-  </div></div>
+  <div class="slide"><div class="card"><div class="st"><b>01</b> · 写给你的话</div><p class="blurb">${c.blurb}</p></div></div>
+  <div class="slide"><div class="card"><div class="st"><b>02</b> · 给你的话</div><p class="big-letter">「${c.letter}」</p></div></div>
   <div class="slide">
-    <div class="card"><div class="st"><b>04</b> · 适合的人事物</div>${suits}</div>
-    <div class="card warn"><div class="st"><b>04</b> · 温柔的盲点</div><p class="p">${c.watchout}</p></div>
-  </div>
-  <div class="slide">
-    <div class="card"><div class="st"><b>05</b> · 三句前世碎碎念</div>
-      <div class="portrait" style="width:96px;height:96px;font-size:48px;background:${c.bg}">${c.emoji}</div>
-      ${c.lines.map(l=>`<div class="speech">「${l}」</div>`).join('')}
-    </div>
-    <div class="card" style="text-align:center"><div class="st">也有缘分的动物</div><div class="rel">${rel}</div>
-      <p class="p" style="margin-top:14px">${c.closing}</p>
-      <p class="legal" style="margin-top:10px">${DISCLAIMER}</p>
+    <div class="card"><div class="st"><b>03</b> · 相处建议</div><p class="p">${c.advice}</p><p class="blind">${c.blind}</p></div>
+    <div class="card">
+      <div class="row2">
+        <div class="half"><div class="sublabel">合得来</div><div class="mates">${mateHtml}</div></div>
+        <div class="half"><div class="sublabel">合不来</div><div class="clash">${clashHtml}</div></div>
+      </div>
+      <p class="legal" style="margin-top:16px">${FOOTER}</p>
     </div>
   </div>`;
   $('dots').innerHTML='';
@@ -668,12 +468,6 @@ function go(i){
   $('slides').style.transform=`translateX(-${si*100}%)`;
   $('ind').textContent=(si+1)+' / '+SLIDES;
   document.querySelectorAll('.dot').forEach((d,k)=>d.classList.toggle('on',k===si));
-  if(si===2){
-    document.querySelectorAll('.bf').forEach(e=>{
-      e.style.width='0';
-      requestAnimationFrame(()=>{e.style.width=e.dataset.v+'%'});
-    });
-  }
 }
 (function(){
   let x0=0,dx=0,md=false;
@@ -687,8 +481,8 @@ function go(i){
 
 function copyText(){
   const c=res;
-  const t=`我测出上辈子更像：${c.name}（契合度 ${pct}%）\n${c.tagline}\n关键词：${c.tags.join(' · ')}\n前世碎碎念：「${c.lines[0]}」\n你也来测测👉 ${URL_}\n${DISCLAIMER}`;
-  const done=()=>toast('文案已复制');
+  const t=`我上辈子是${c.name}\n${c.title}\n关键词：${c.tags.join(' · ')}\n给你的话：「${c.letter}」\n把结果报给朋友👉 ${URL_}\n${FOOTER}`;
+  const done=()=>toast('文案已复制，可以报给朋友');
   const fail=()=>{
     const a=document.createElement('textarea');
     a.value=t;document.body.appendChild(a);a.select();
@@ -699,67 +493,67 @@ function copyText(){
   else fail();
 }
 
-/* ===== SHARE IMAGE ===== */
-const FONT='"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei",sans-serif';
+const FONT='"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Microsoft YaHei",sans-serif';
+const EMOJI_FONT='"Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif';
 function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
 function wrapT(c,t,mw){const o=[];let l='';for(const ch of t){if(c.measureText(l+ch).width>mw&&l){o.push(l);l=ch}else l+=ch}if(l)o.push(l);return o}
 function buildShare(){
-  const c=res,W=1080,P=72,CW=W-P*2;
-  const cv=document.createElement('canvas'),x=cv.getContext('2d');
-  function T(t,tx,ty,s,col,wt,al){x.font=`${wt||400} ${s}px ${FONT}`;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,tx,ty)}
-  function box(y,h){x.fillStyle='#fff';rr(x,P,y,CW,h,40);x.fill();x.strokeStyle='#E8D9C8';x.lineWidth=3;x.stroke()}
-  function layout(draw){
-    if(draw){const g=x.createLinearGradient(0,0,0,cv.height);g.addColorStop(0,'#FFF8F2');g.addColorStop(1,'#F3EBE0');x.fillStyle=g;x.fillRect(0,0,W,cv.height)}
-    let y=64;
-    if(draw) T('上辈子的我更像',W/2,y,40,'#4F7A62',600,'center');
-    y+=78;
-    const h1=860;
-    if(draw){
-      box(y,h1);
-      x.beginPath();x.arc(W/2,y+250,170,0,Math.PI*2);x.fillStyle=c.bg;x.fill();
-      x.font=`160px ${FONT}`;x.textAlign='center';x.textBaseline='middle';x.fillText(c.emoji,W/2,y+262);
-      x.textBaseline='top';
-    }
-    let cy=y+460;
-    if(draw){
-      T(pct+'%',W/2,cy,120,'#4F7A62',700,'center');
-      T(c.name,W/2,cy+140,76,'#4A3F35',700,'center');
-      T(c.tagline,W/2,cy+236,34,'#7A6E64',400,'center');
-    }
-    x.font=`500 34px ${FONT}`;
-    const tw=c.tags.map(t=>x.measureText(t).width+56);
-    const tot=tw.reduce((a,b)=>a+b,0)+18*(tw.length-1);
-    let tx=(W-tot)/2;
-    const tagY=y+h1-130;
-    if(draw){
-      c.tags.forEach((t,i)=>{x.fillStyle='#F8E8E4';rr(x,tx,tagY,tw[i],64,32);x.fill();T(t,tx+tw[i]/2,tagY+14,32,'#C48478',600,'center');tx+=tw[i]+18});
-    }
-    y+=h1+32;
-    x.font=`400 34px ${FONT}`;
-    const wl=wrapT(x,c.traits[0],CW-96);
-    const h2=150+wl.length*52;
-    if(draw){box(y,h2);T('灵魂特征',P+48,y+40,40,'#4A3F35',700);wl.forEach((l,i)=>T(l,P+48,y+110+i*52,34,'#7A6E64'))}
-    y+=h2+32;
-    x.font=`500 36px ${FONT}`;
-    const line=wrapT(x,'「'+c.lines[0]+'」',CW-120);
-    const h3=120+line.length*52;
-    if(draw){
-      box(y,h3);
-      x.fillStyle='#F4F8F4';rr(x,P+40,y+36,CW-80,h3-72,24);x.fill();
-      line.forEach((l,i)=>T(l,W/2,y+56+i*52,36,'#4A3F35',500,'center'));
-    }
-    y+=h3+48;
-    if(draw){
-      T('上辈子是什么动物',W/2,y,42,'#4A3F35',700,'center');
-      T(URL_,W/2,y+64,28,'#4F7A62',500,'center');
-      T(DISCLAIMER,W/2,y+112,24,'#B7A99C',400,'center');
-    }
-    return y+160;
-  }
-  cv.width=W;cv.height=10;
-  const H=layout(false);
+  const c=res,W=1080,H=1920;
+  const cv=document.createElement('canvas');
   cv.width=W;cv.height=H;
-  layout(true);
+  const x=cv.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#FFF8F2'); g.addColorStop(1,'#F3E6D4');
+  x.fillStyle=g; x.fillRect(0,0,W,H);
+  x.fillStyle='rgba(143,191,159,.16)'; x.beginPath(); x.arc(140,200,240,0,Math.PI*2); x.fill();
+  x.fillStyle='rgba(232,165,152,.14)'; x.beginPath(); x.arc(940,520,280,0,Math.PI*2); x.fill();
+  x.strokeStyle='#E4D0BC'; x.lineWidth=3; x.strokeRect(46,46,W-92,H-92);
+  x.strokeStyle='#C9B29A'; x.lineWidth=3;
+  [[78,78,1,1],[W-78,78,-1,1],[78,H-78,1,-1],[W-78,H-78,-1,-1]].forEach(([x0,y0,sx,sy])=>{
+    x.beginPath(); x.moveTo(x0,y0+sy*36); x.lineTo(x0,y0); x.lineTo(x0+sx*36,y0); x.stroke();
+  });
+  const rareCol=c.rare==='天花板'?'#A15A4E':c.rare==='少见'?'#C48478':'#4F7A62';
+  function T(t,tx,ty,s,col,wt){
+    x.font=`${wt||500} ${s}px ${FONT}`;
+    x.fillStyle=col; x.textAlign='center'; x.textBaseline='top';
+    x.fillText(t,tx,ty);
+  }
+  x.strokeStyle=rareCol; x.lineWidth=3; x.strokeRect(W-230,96,150,52);
+  T(c.rare,W-155,106,28,rareCol,700);
+  x.save();
+  x.translate(W/2,500);
+  x.rotate(-6*Math.PI/180);
+  rr(x,-176,-176,352,352,78); x.fillStyle='#fff'; x.fill();
+  rr(x,-150,-150,300,300,62); x.fillStyle=c.bg; x.fill();
+  x.font=`168px ${EMOJI_FONT}`;
+  x.textAlign='center'; x.textBaseline='middle';
+  x.fillText(c.emoji,0,10);
+  x.restore();
+  T('我上辈子是',W/2,760,42,'#4F7A62',600);
+  T(c.name,W/2,830,112,'#4A3F35',700);
+  T(c.title,W/2,970,40,'#C48478',600);
+  x.font=`600 36px ${FONT}`;
+  const tw=c.tags.map(t=>x.measureText(t).width+64);
+  const gap=18, tot=tw.reduce((a,b)=>a+b,0)+gap*(tw.length-1);
+  let tx=(W-tot)/2; const ty=1088;
+  c.tags.forEach((t,i)=>{
+    x.fillStyle='#F8E8E4'; rr(x,tx,ty,tw[i],76,38); x.fill();
+    T(t,tx+tw[i]/2,ty+18,36,'#C48478',600);
+    tx+=tw[i]+gap;
+  });
+  x.font=`600 42px ${FONT}`;
+  const lines=wrapT(x,'「'+c.letter+'」',820);
+  const bh=lines.length*64+88, by=1248;
+  x.fillStyle='#fffdf9'; rr(x,90,by,900,bh,40); x.fill();
+  x.strokeStyle='#E6D5C3'; x.lineWidth=3; x.stroke();
+  lines.forEach((l,i)=>T(l,W/2,by+44+i*64,42,'#4A3F35',600));
+  const ctaY=by+bh+52;
+  T('把结果报给朋友',W/2,ctaY,44,'#4A3F35',700);
+  let urlSize=26;
+  x.font=`500 ${urlSize}px ${FONT}`;
+  while(x.measureText(URL_).width>940 && urlSize>16){urlSize-=1; x.font=`500 ${urlSize}px ${FONT}`;}
+  T(URL_,W/2,ctaY+74,urlSize,'#4F7A62',500);
+  T(FOOTER,W/2,ctaY+118,24,'#B7A99C',400);
   return cv.toDataURL('image/png');
 }
 function showShare(){
@@ -774,7 +568,6 @@ function showShare(){
   }
 }
 
-/* ===== ACCESS CODE ===== */
 const MANTLE_NS='catquiz-zph420-codes';
 const MANTLE_COL='ap';
 const MANTLE_KEY='f60c0dae2088e5ccd5061a110aef0c0ff2a5b85f2658e78809c9123c9d82a22c';
@@ -820,30 +613,26 @@ function refreshLastBtn(){
   $('btnLast').hidden=!has;
 }
 function saveLast(){
-  try{
-    localStorage.setItem(LAST_KEY,JSON.stringify({id:res.id,pct,dims:userDims,at:Date.now()}));
-  }catch(e){}
+  try{localStorage.setItem(LAST_KEY,JSON.stringify({id:res.id,pct,dims:userDims,at:Date.now()}))}catch(e){}
   refreshLastBtn();
 }
 function showLast(){
   let data=null;
   try{data=JSON.parse(localStorage.getItem(LAST_KEY)||'null')}catch(e){data=null}
   if(!data||!data.id){toast('还没有上次结果');refreshLastBtn();return}
-  const animal=ANIMALS.find(a=>a.id===data.id);
+  const animal=byId(data.id);
   if(!animal){toast('上次结果已失效');return}
   res=animal;
   pct=typeof data.pct==='number'?data.pct:80;
   userDims=data.dims&&typeof data.dims==='object'?data.dims:Object.assign({},animal.ideal);
-  others=rankAnimals(userDims).filter(x=>x.a.id!==res.id).slice(0,3).map(x=>x.a);
   renderR();
   show('result');
 }
 async function mantleFetch(url,opts){
   const ctl=new AbortController();
   const timer=setTimeout(()=>ctl.abort(),12000);
-  try{
-    return await fetch(url,Object.assign({},opts,{signal:ctl.signal}));
-  }finally{clearTimeout(timer)}
+  try{return await fetch(url,Object.assign({},opts,{signal:ctl.signal}))}
+  finally{clearTimeout(timer)}
 }
 async function mantleGet(code){
   const r=await mantleFetch(MANTLE_BASE+'/'+MANTLE_COL+'/'+encodeURIComponent(code),{headers:{'X-Mantle-Key':MANTLE_KEY}});
@@ -875,10 +664,7 @@ async function redeemCode(code){
   if(data.remaining<=0) return {ok:false,reason:'exhausted'};
   const after=await mantleDecr(code);
   const left=typeof after.remaining==='number'?after.remaining:-1;
-  if(left<0){
-    await mantleIncr(code);
-    return {ok:false,reason:'exhausted'};
-  }
+  if(left<0){await mantleIncr(code);return {ok:false,reason:'exhausted'}}
   return {ok:true,remaining:left,max:data.max||3};
 }
 async function tryUnlock(fromUrl){
@@ -895,34 +681,23 @@ async function tryUnlock(fromUrl){
       startQuiz();
       return true;
     }
-    if(!fromUrl){
-      toast(out.reason==='exhausted'?'此验证码已用完（每个码限 3 次）':'验证码不正确');
-    }
+    if(!fromUrl) toast(out.reason==='exhausted'?'此验证码已用完（每个码限 3 次）':'验证码不正确');
     return false;
   }catch(e){
     console.error(e);
     if(!fromUrl) toast('网络异常，请稍后重试');
     return false;
-  }finally{
-    setCodeBusy(false);
-  }
+  }finally{setCodeBusy(false)}
 }
 
-$('btnStart').onclick=()=>{
-  if(isUnlocked()){startQuiz();return}
-  openCodeModal();
-};
+$('btnStart').onclick=()=>{if(isUnlocked()){startQuiz();return} openCodeModal()};
 $('btnLast').onclick=()=>showLast();
 $('btnCodeOk').onclick=()=>tryUnlock(false);
 $('codeInput').addEventListener('keydown',e=>{if(e.key==='Enter') tryUnlock(false)});
 $('codeInput').addEventListener('input',()=>{
   const el=$('codeInput');
   const v=el.value.toUpperCase();
-  if(v!==el.value){
-    const p=el.selectionStart;
-    el.value=v;
-    try{el.setSelectionRange(p,p)}catch(e){}
-  }
+  if(v!==el.value){const p=el.selectionStart; el.value=v; try{el.setSelectionRange(p,p)}catch(e){}}
 });
 $('codeClose').onclick=closeCodeModal;
 $('codeMask').addEventListener('click',e=>{if(e.target===$('codeMask')) closeCodeModal()});
@@ -939,8 +714,8 @@ $('btnClose').onclick=()=>$('ov').classList.remove('show');
 $('btnDl').onclick=()=>{
   const a=document.createElement('a');
   a.href=window.__shareUrl;
-  a.download='上辈子是'+(res?res.name:'动物')+'.png';
-  document.body.appendChild(a);a.click();a.remove();
+  a.download='我上辈子是'+(res?res.name:'动物')+'.png';
+  document.body.appendChild(a); a.click(); a.remove();
 };
 refreshLastBtn();
 (function(){
