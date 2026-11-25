@@ -107,7 +107,7 @@ h1 .hl{background:linear-gradient(transparent 62%,#E4C8B8 62%);padding:0 2px}
 .code-mask.show{display:flex}
 .code-panel{width:100%;background:#fffdf9;border:1.5px solid var(--border);border-radius:22px;padding:24px 20px 20px;box-shadow:0 12px 40px rgba(74,63,53,.14);text-align:center}
 .code-panel h3{font-size:18px;color:var(--dark);margin-bottom:16px;font-weight:700}
-.code-panel input{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:14px;font-size:18px;color:var(--dark);background:var(--lighter);outline:none;text-align:center;letter-spacing:2px}
+.code-panel input{width:100%;padding:14px 12px;border:1.5px solid var(--border);border-radius:14px;font-size:16px;color:var(--dark);background:var(--lighter);outline:none;text-align:center;letter-spacing:0}
 .code-panel input:focus{border-color:var(--main);background:#fff}
 .code-panel .btn-primary{margin-top:14px;max-width:none}
 .code-hint{margin-top:12px;font-size:12px;color:var(--light);line-height:1.55}
@@ -140,8 +140,8 @@ h1 .hl{background:linear-gradient(transparent 62%,#E4C8B8 62%);padding:0 2px}
 </section>
 <section id="loading" class="screen">
   <div class="loader"></div>
-  <div style="font-weight:700;color:var(--deep)">正在拆开你的前世贴纸…</div>
-  <div style="font-size:13px;color:var(--light);margin-top:6px">十二种灵魂里，有一只在向你点头</div>
+  <div id="ldTitle" style="font-weight:700;color:var(--deep)">正在拆开你的前世贴纸…</div>
+  <div id="ldSub" style="font-size:13px;color:var(--light);margin-top:6px">十二种灵魂里，有一只在向你点头</div>
 </section>
 <section id="result" class="screen">
   <div class="rtop"><span>前世小笺</span><span id="ind">1 / 4</span></div>
@@ -151,7 +151,7 @@ h1 .hl{background:linear-gradient(transparent 62%,#E4C8B8 62%);padding:0 2px}
   <div class="acts">
     <p class="acts-legal">趣味娱乐，仅供玩乐<span>本测试仅供娱乐，不构成任何医学或心理诊断依据</span></p>
     <div class="acts-row">
-      <button class="bo" id="btnRetry" type="button">重新测试</button>
+      <button class="bo" id="btnRetry" type="button">再测一次</button>
       <button class="bo" id="btnCopy" type="button">复制文案</button>
       <button class="bp" id="btnImg" type="button">生成分享图</button>
     </div>
@@ -169,10 +169,10 @@ h1 .hl{background:linear-gradient(transparent 62%,#E4C8B8 62%);padding:0 2px}
   <div class="code-panel-wrap">
     <div class="code-panel">
       <button type="button" class="code-close" id="codeClose" aria-label="关闭">×</button>
-      <h3>输入测试验证码</h3>
-      <input type="text" id="codeInput" placeholder="例如 AP7K3N" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="32" enterkeyhint="go">
+      <h3>输入订单号</h3>
+      <input type="text" id="codeInput" placeholder="订单号" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="120" enterkeyhint="go">
       <button type="button" class="btn-primary" id="btnCodeOk">开始答题</button>
-      <p class="code-hint">付款后会收到 6 位验证码<br>每个码可使用 3 次<br>重新测试会再次扣次 · 查看上次结果不扣次</p>
+      <p class="code-hint">到小红书「我的订单」复制订单号贴过来<br>每个订单号可以测 3 次</p>
     </div>
   </div>
 </div>
@@ -425,7 +425,13 @@ function pick(i){
 }
 function finish(){
   show('loading');
-  setTimeout(()=>{compute();saveLast();renderR();show('result')},1100);
+  setTimeout(()=>{
+    compute();
+    saveLast();
+    if(sessionKind()==='order') saveOrderResult();
+    renderR();
+    show('result');
+  },1100);
 }
 function renderR(){
   const c=res;
@@ -568,28 +574,220 @@ function showShare(){
   }
 }
 
+/* ===== UNLOCK: Xiaohongshu order id, or this page's existing Mantle ap/ code =====
+   P+18 digits → POST /order/redeem and GET /order/get (quiz=animal).
+   Anything else that matches CODE_RE stays on Mantle ap/ (do not switch legacy to /redeem).
+   Submit / 再测一次: POST /order/redeem (one use). Same-tab result refresh: GET /order/get
+   (no decrement). not_found on peek does not reveal the result. A timed-out redeem
+   peeks and posts again only when the use count did not go up. paidVerified is never shown. */
 const MANTLE_NS='catquiz-zph420-codes';
 const MANTLE_COL='ap';
 const MANTLE_KEY='f60c0dae2088e5ccd5061a110aef0c0ff2a5b85f2658e78809c9123c9d82a22c';
 const MANTLE_BASE='https://mantledb.sh/v2/'+MANTLE_NS;
 const ACCESS_KEY='animal_past_unlocked';
 const ACCESS_CODE_KEY='animal_past_code';
+const KIND_KEY='animal_past_kind';
+const PHASE_KEY='animal_past_phase';
+const RESULT_KEY='animal_past_order_result';
 const LAST_KEY='animal_past_last_result';
+const API_BASE='https://snappy-tundra-7uesdvk-zengpenghui420-glitch.vercel.app';
+const QUIZ_KEY='animal';
+const ORDER_TIMEOUT_MS=12000;
 
 function isUnlocked(){try{return sessionStorage.getItem(ACCESS_KEY)==='1'}catch(e){return false}}
 function setUnlocked(code){
   try{
     sessionStorage.setItem(ACCESS_KEY,'1');
     if(code) sessionStorage.setItem(ACCESS_CODE_KEY,code);
+    sessionStorage.setItem(KIND_KEY,'code');
+    sessionStorage.removeItem(PHASE_KEY);
+    sessionStorage.removeItem(RESULT_KEY);
   }catch(e){}
 }
+function setUnlockedOrder(orderId){
+  try{
+    sessionStorage.setItem(ACCESS_KEY,'1');
+    sessionStorage.setItem(ACCESS_CODE_KEY,orderId);
+    sessionStorage.setItem(KIND_KEY,'order');
+    sessionStorage.setItem(PHASE_KEY,'running');
+    sessionStorage.removeItem(RESULT_KEY);
+  }catch(e){}
+}
+function sessionKind(){try{return sessionStorage.getItem(KIND_KEY)||''}catch(e){return ''}}
+function sessionPhase(){try{return sessionStorage.getItem(PHASE_KEY)||''}catch(e){return ''}}
+function sessionCode(){try{return sessionStorage.getItem(ACCESS_CODE_KEY)||''}catch(e){return ''}}
 function clearUnlock(){
   try{
     sessionStorage.removeItem(ACCESS_KEY);
     sessionStorage.removeItem(ACCESS_CODE_KEY);
+    sessionStorage.removeItem(KIND_KEY);
+    sessionStorage.removeItem(PHASE_KEY);
+    sessionStorage.removeItem(RESULT_KEY);
   }catch(e){}
 }
 function normalizeCode(v){return String(v||'').trim().toUpperCase().replace(/[^A-Z0-9]/g,'')}
+/* ORDER_UNLOCK_START */
+function normalizeOrderId(raw){
+  let s=String(raw??'');
+  if(s.length>400)s=s.slice(0,400);
+  s=s.normalize('NFKC').trim();
+  if((s.startsWith('"')&&s.endsWith('"'))||(s.startsWith("'")&&s.endsWith("'"))||(s.startsWith('`')&&s.endsWith('`'))||(s.startsWith('「')&&s.endsWith('」')))s=s.slice(1,-1).trim();
+  s=s.toUpperCase();
+  s=s.replace(/[\s\u00A0]+/g,'');
+  s=s.replace(/[-_./\\·•:：]+/g,'');
+  return s;
+}
+function isRepeatingBlock(digits){
+  for(const size of [1,2,3,6,9]){const block=digits.slice(0,size);if(block.repeat(digits.length/size)===digits)return true}
+  return false;
+}
+function isPlusMinusOneMod10(digits){
+  const step=(digits.charCodeAt(1)-digits.charCodeAt(0)+10)%10;
+  if(step!==1&&step!==9)return false;
+  for(let i=1;i<digits.length;i++){if((digits.charCodeAt(i)-digits.charCodeAt(i-1)+10)%10!==step)return false}
+  return true;
+}
+function orderFormatError(orderId){
+  if(!/^P\d{18}$/.test(orderId))return 'invalid';
+  const digits=orderId.slice(1);
+  if(isRepeatingBlock(digits)||isPlusMinusOneMod10(digits))return 'invalid';
+  return '';
+}
+function classifyInput(raw){
+  const trimmed=String(raw||'').trim();
+  if(!trimmed)return {type:'empty'};
+  const orderId=normalizeOrderId(raw);
+  if(/^P\d{18}$/.test(orderId))return {type:'order',orderId};
+  if(/^P\d+$/.test(orderId)&&orderId.length>=10)return {type:'order-invalid'};
+  const code=normalizeCode(raw);
+  if(!code)return {type:'empty'};
+  if(/^P\d{10,}$/.test(code))return {type:'order-invalid'};
+  return {type:'code',code};
+}
+function usesOf(res){
+  if(!res)return null;
+  if(res.ok&&typeof res.uses==='number')return res.uses;
+  if(res.error==='not_found')return 0;
+  return null;
+}
+function decideTimeout(beforeUses,after){
+  if(!after)return 'giveup';
+  if(!after.ok&&after.error&&after.error!=='not_found')return 'return';
+  const afterUses=usesOf(after);
+  if(after.ok&&beforeUses!=null&&afterUses!=null&&afterUses>beforeUses)return 'accept';
+  if(after.ok&&beforeUses==null)return 'accept';
+  if(afterUses===0||(beforeUses!=null&&afterUses!=null&&afterUses===beforeUses))return 'retry';
+  return 'giveup';
+}
+function orderFailText(res){
+  const e=res&&(res.error||res.reason);
+  if(e==='invalid')return '订单号格式不对，请到小红书「我的订单」里复制';
+  if(e==='bound_other_quiz')return '这个订单号已经用来测过别的测试了';
+  if(e==='exhausted')return '这个订单号的 3 次已经用完了';
+  if(e==='rate_limited')return '试的次数有点多，请稍后再试';
+  return '暂时验证不了，请稍后再试';
+}
+function orderTimeoutMs(){
+  try{if(globalThis.__ORDER_TIMEOUT_MS)return globalThis.__ORDER_TIMEOUT_MS}catch(e){}
+  return ORDER_TIMEOUT_MS;
+}
+function reconcileWaitMs(){
+  try{if(globalThis.__ORDER_RECONCILE_MS!=null)return globalThis.__ORDER_RECONCILE_MS}catch(e){}
+  return 1200;
+}
+function deviceId(){
+  const k='animal_past_device';
+  try{
+    let id=localStorage.getItem(k);
+    if(id&&/^[A-Za-z0-9._:-]{8,128}$/.test(id))return id;
+    const buf=new Uint8Array(16);
+    if(typeof crypto!=='undefined'&&crypto.getRandomValues)crypto.getRandomValues(buf);
+    else for(let i=0;i<buf.length;i++)buf[i]=Math.floor(Math.random()*256);
+    id=Array.from(buf,b=>b.toString(16).padStart(2,'0')).join('');
+    localStorage.setItem(k,id);
+    return id;
+  }catch(e){return ''}
+}
+function orderHeaders(json){
+  const h={};
+  if(json)h['Content-Type']='application/json';
+  const id=deviceId();
+  if(id)h['X-Device-Id']=id;
+  return h;
+}
+async function orderFetch(url,opts){
+  const ctrl=new AbortController();
+  const timer=setTimeout(()=>ctrl.abort(),orderTimeoutMs());
+  try{
+    let r;
+    try{r=await fetch(url,Object.assign({},opts,{signal:ctrl.signal,cache:'no-store'}))}
+    catch(e){
+      const err=new Error('timeout');err.timeout=true;throw err;
+    }
+    const text=await r.text();
+    let data=null;
+    try{data=text?JSON.parse(text):null}catch(e){data=null}
+    if(!data||typeof data!=='object'||Array.isArray(data)){
+      const err=new Error('http '+r.status);
+      err.status=r.status;
+      if(r.status===500||r.status===502||r.status===503||r.status===504)err.timeout=true;
+      else err.unavailable=true;
+      throw err;
+    }
+    data.status=r.status;
+    if(r.status===404&&data.error==='not_found')return {ok:false,error:'not_found',status:404};
+    if(r.status===500||r.status===502||r.status===503||r.status===504){const err=new Error('timeout');err.timeout=true;err.status=r.status;throw err}
+    return data;
+  }finally{clearTimeout(timer)}
+}
+function orderGetUrl(orderId){return API_BASE+'/order/get?quiz='+encodeURIComponent(QUIZ_KEY)+'&orderId='+encodeURIComponent(orderId)}
+async function peekOrder(orderId){return orderFetch(orderGetUrl(orderId),{method:'GET',headers:orderHeaders(false)})}
+async function postRedeem(orderId){
+  return orderFetch(API_BASE+'/order/redeem',{method:'POST',headers:orderHeaders(true),body:JSON.stringify({quiz:QUIZ_KEY,orderId})});
+}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+async function reconcileTimeout(orderId,beforeUses){
+  let after=null;
+  try{after=await peekOrder(orderId)}catch(e){after=null}
+  let action=decideTimeout(beforeUses,after);
+  if(action==='retry'||action==='giveup'){
+    await sleep(reconcileWaitMs());
+    try{after=await peekOrder(orderId)}catch(e){}
+    const again=decideTimeout(beforeUses,after);
+    if(again==='accept'||again==='return'||again==='retry')action=again;
+  }
+  return {action,after};
+}
+async function redeemOrder(orderId){
+  const bad=orderFormatError(orderId);
+  if(bad)return {ok:false,error:bad};
+  let beforeUses=null;
+  try{
+    const before=await peekOrder(orderId);
+    if(before&&before.ok&&(before.remaining<=0||(typeof before.max==='number'&&typeof before.uses==='number'&&before.uses>=before.max))){
+      return {ok:false,error:'exhausted',remaining:0,max:before.max||3};
+    }
+    if(before&&!before.ok&&before.error&&before.error!=='not_found')return before;
+    beforeUses=usesOf(before);
+  }catch(e){
+    if(!(e&&(e.unavailable||e.timeout)))throw e;
+  }
+  async function once(){
+    try{return {kind:'res',res:await postRedeem(orderId)}}
+    catch(e){if(e&&e.timeout)return {kind:'timeout'};throw e}
+  }
+  let outcome=await once();
+  if(outcome.kind==='res')return outcome.res;
+  let rec=await reconcileTimeout(orderId,beforeUses);
+  if(rec.action==='accept'||rec.action==='return')return rec.after;
+  if(rec.action!=='retry'){const err=new Error('timeout');err.timeout=true;throw err}
+  outcome=await once();
+  if(outcome.kind==='res')return outcome.res;
+  rec=await reconcileTimeout(orderId,beforeUses);
+  if(rec.action==='accept'||rec.action==='return')return rec.after;
+  const err=new Error('timeout');err.timeout=true;throw err;
+}
+/* ORDER_UNLOCK_END */
 function openCodeModal(prefill){
   $('codeMask').classList.add('show');
   $('codeMask').setAttribute('aria-hidden','false');
@@ -602,10 +800,9 @@ function closeCodeModal(){
   $('codeMask').setAttribute('aria-hidden','true');
 }
 function startQuiz(){ans=[];qi=0;picking=false;closeCodeModal();show('quiz');renderQ()}
-function setCodeBusy(busy){
-  const btn=$('btnCodeOk');
-  btn.disabled=!!busy;
-  btn.textContent=busy?'验证中…':'开始答题';
+function resetLoading(){
+  $('ldTitle').textContent='正在拆开你的前世贴纸…';
+  $('ldSub').textContent='十二种灵魂里，有一只在向你点头';
 }
 function refreshLastBtn(){
   let has=false;
@@ -667,30 +864,108 @@ async function redeemCode(code){
   if(left<0){await mantleIncr(code);return {ok:false,reason:'exhausted'}}
   return {ok:true,remaining:left,max:data.max||3};
 }
-async function tryUnlock(fromUrl){
-  const code=normalizeCode($('codeInput').value);
-  if(!code){if(!fromUrl) toast('请输入验证码');return false}
-  if(!CODE_RE.test(code)){if(!fromUrl) toast('验证码不正确');return false}
-  setCodeBusy(true);
+let unlockBusy=false;
+function orderSuccessText(res){return res.remaining>0?'验证成功，还可以测 '+res.remaining+' 次':'验证成功，这是最后一次'}
+function saveOrderResult(){
   try{
-    const out=await redeemCode(code);
-    if(out.ok){
-      setUnlocked(code);
-      const left=out.remaining;
-      toast(left>0?('验证成功，还可以测 '+left+' 次'):'验证成功，这是本码最后一次');
-      startQuiz();
-      return true;
+    sessionStorage.setItem(RESULT_KEY,JSON.stringify({ans:ans.slice()}));
+    sessionStorage.setItem(PHASE_KEY,'result');
+  }catch(e){}
+}
+function readSavedResult(){
+  try{
+    const s=JSON.parse(sessionStorage.getItem(RESULT_KEY)||'null');
+    if(!s||!Array.isArray(s.ans)||s.ans.length!==Q.length)return null;
+    if(!s.ans.every(n=>n===0||n===1||n===2||n===3))return null;
+    return s;
+  }catch(e){return null}
+}
+function applySaved(s){
+  ans=s.ans.slice();
+  qi=0;
+  compute();
+  saveLast();
+  renderR();
+  show('result');
+}
+async function restoreOrderResult(fromClick){
+  if(sessionKind()!=='order')return false;
+  const saved=readSavedResult(),orderId=sessionCode();
+  if(!saved||!orderId){if(fromClick)openCodeModal();return false}
+  if(unlockBusy)return false;
+  unlockBusy=true;
+  if(!fromClick){
+    resetLoading();
+    $('ldTitle').textContent='打开结果…';
+    $('ldSub').textContent='正在核对订单号';
+    show('loading');
+  }
+  try{
+    const peek=await peekOrder(orderId);
+    if(!peek.ok){
+      if(peek.error==='not_found')clearUnlock();
+      else toast(orderFailText(peek));
+      show('start');
+      return false;
     }
-    if(!fromUrl) toast(out.reason==='exhausted'?'此验证码已用完（每个码限 3 次）':'验证码不正确');
-    return false;
+    applySaved(saved);
+    return true;
+  }catch(e){
+    console.error(e);show('start');toast('暂时验证不了，请稍后再试');return false;
+  }finally{unlockBusy=false;resetLoading()}
+}
+async function tryUnlock(fromUrl){
+  const cls=classifyInput($('codeInput').value);
+  if(cls.type==='empty'){if(!fromUrl)toast('请贴上订单号');return}
+  if(cls.type==='order-invalid'||(cls.type==='order'&&orderFormatError(cls.orderId))){toast(orderFailText({error:'invalid'}));return}
+  if(cls.type==='order')$('codeInput').value=cls.orderId;
+  if(cls.type==='code'){
+    if(!CODE_RE.test(cls.code)){if(!fromUrl)toast('订单号不对');return}
+    $('codeInput').value=cls.code;
+  }
+  if(unlockBusy)return;
+  unlockBusy=true;
+  const btn=$('btnCodeOk');btn.disabled=true;btn.textContent='验证中…';
+  try{
+    if(cls.type==='order'){
+      const res=await redeemOrder(cls.orderId);
+      if(res&&res.ok){setUnlockedOrder(cls.orderId);toast(orderSuccessText(res));startQuiz();return}
+      toast(orderFailText(res));return
+    }
+    const res=await redeemCode(cls.code);
+    if(res.ok){setUnlocked(cls.code);toast(orderSuccessText(res));startQuiz();return}
+    if(!fromUrl)toast(res.reason==='exhausted'?'次数已经用完了':'订单号不对')
   }catch(e){
     console.error(e);
-    if(!fromUrl) toast('网络异常，请稍后重试');
-    return false;
-  }finally{setCodeBusy(false)}
+    if(cls.type==='order'||!fromUrl)toast(cls.type==='order'?'暂时验证不了，请稍后再试':'网络异常，请稍后重试')
+  }finally{btn.disabled=false;btn.textContent='开始答题';unlockBusy=false}
+}
+async function retryOrder(){
+  const orderId=sessionCode();
+  if(!orderId){clearUnlock();show('start');openCodeModal();return}
+  if(unlockBusy)return;
+  unlockBusy=true;
+  const btn=$('btnRetry');btn.disabled=true;const prev=btn.textContent;btn.textContent='验证中…';
+  try{
+    const res=await redeemOrder(orderId);
+    if(!res||!res.ok){toast(orderFailText(res));return}
+    setUnlockedOrder(orderId);
+    toast(orderSuccessText(res));
+    show('start');
+  }catch(e){console.error(e);toast('暂时验证不了，请稍后再试')}
+  finally{btn.disabled=false;btn.textContent=prev;unlockBusy=false}
 }
 
-$('btnStart').onclick=()=>{if(isUnlocked()){startQuiz();return} openCodeModal()};
+$('btnStart').onclick=()=>{
+  if(unlockBusy)return;
+  if(sessionKind()==='order'){
+    if(sessionPhase()==='running'){startQuiz();return}
+    if(sessionPhase()==='result'){restoreOrderResult(true);return}
+    openCodeModal();return
+  }
+  if(isUnlocked()){startQuiz();return}
+  openCodeModal();
+};
 $('btnLast').onclick=()=>showLast();
 $('btnCodeOk').onclick=()=>tryUnlock(false);
 $('codeInput').addEventListener('keydown',e=>{if(e.key==='Enter') tryUnlock(false)});
@@ -702,12 +977,7 @@ $('codeInput').addEventListener('input',()=>{
 $('codeClose').onclick=closeCodeModal;
 $('codeMask').addEventListener('click',e=>{if(e.target===$('codeMask')) closeCodeModal()});
 $('qback').onclick=()=>{if(qi>0&&!picking){qi--;renderQ()}};
-$('btnRetry').onclick=()=>{
-  let pre='';
-  try{pre=sessionStorage.getItem(ACCESS_CODE_KEY)||''}catch(e){}
-  clearUnlock();
-  openCodeModal(pre);
-};
+$('btnRetry').onclick=()=>{if(sessionKind()==='order'){retryOrder();return}show('start')};
 $('btnCopy').onclick=copyText;
 $('btnImg').onclick=showShare;
 $('btnClose').onclick=()=>$('ov').classList.remove('show');
@@ -719,12 +989,13 @@ $('btnDl').onclick=()=>{
 };
 refreshLastBtn();
 (function(){
+  if(sessionKind()==='order'&&sessionPhase()==='result')restoreOrderResult(false);
   try{
     const p=new URLSearchParams(location.search).get('code');
     if(p==null||p==='') return;
     if(isUnlocked()) return;
-    $('codeInput').value=normalizeCode(p);
-    openCodeModal($('codeInput').value);
+    $('codeInput').value=p;
+    openCodeModal(p);
     tryUnlock(true);
   }catch(e){}
 })();
